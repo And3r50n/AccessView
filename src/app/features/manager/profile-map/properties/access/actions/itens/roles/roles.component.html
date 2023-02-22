@@ -1,0 +1,35 @@
+
+
+
+<table mat-table [dataSource]="branches" class="mat-elevation-z8">
+   
+    <!-- Role Item Column -->
+    <ng-container matColumnDef="item" stickyEnd>
+      <th mat-header-cell *matHeaderCellDef>Item</th>
+      <td mat-cell *matCellDef="let branche">
+        {{ branche.role.name }}
+      </td>
+    </ng-container>
+
+    <!-- Branche last Update Column -->
+    <ng-container matColumnDef="updated" stickyEnd>
+      <th mat-header-cell *matHeaderCellDef>Update</th>
+      <td mat-cell *matCellDef="let branche">
+        {{ branche.updated}}
+      </td>
+    </ng-container>
+
+    <!-- Branche Status Column -->
+    <ng-container matColumnDef="status" stickyEnd>
+      <th mat-header-cell *matHeaderCellDef>Status</th>
+      <td mat-cell *matCellDef="let branche">
+        {{ branche.status}}
+      </td>
+    </ng-container>
+
+
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let team; columns: displayedColumns;"></tr>
+  
+  </table>

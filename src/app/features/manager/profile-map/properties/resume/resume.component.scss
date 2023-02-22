@@ -1,0 +1,33 @@
+
+::ng-deep .mat-form-field-wrapper{
+  margin-bottom: -1.25em;
+}
+
+.system-wrapper{
+  width: 100%;
+  display: inline-flex;
+}
+
+.scroll-viewport{
+  height: 100%;
+  width: 100%;
+}
+   
+section{
+  margin-left:5px;
+  margin-right:5px;
+  height: 60vh;
+  width: 100%
+}
+
+.display-root{
+  font-size: 14px;
+}
+
+.display-child{
+  font-size: 12px;
+}
+
+.spacer{
+  flex: 1 1 auto;
+}

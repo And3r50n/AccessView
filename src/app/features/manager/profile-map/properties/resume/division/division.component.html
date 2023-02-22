@@ -1,0 +1,104 @@
+<mat-toolbar>
+  <mat-label style="color: teal">Resume</mat-label>
+  <span class="spacer"></span>
+  <button matSuffix mat-icon-button>
+      <mat-icon color="warn"></mat-icon>
+  </button>
+  <button matSuffix mat-icon-button>
+      <mat-icon color="primary">playlist_add</mat-icon>
+  </button>
+</mat-toolbar>
+
+<table mat-table [dataSource]="divisions$" multiTemplateDataRows class="mat-elevation-z8">
+
+  <!-- More Menu Column -->
+  <ng-container matColumnDef="more">
+    <th mat-header-cell *matHeaderCellDef aria-label="row actions">&nbsp;</th>
+    <td mat-cell *matCellDef="let division" class="more-option">
+      <span>
+        <button mat-icon-button [matMenuTriggerFor]="menu" (click)="$event.stopPropagation()">
+          <mat-icon color="primary">more_vert</mat-icon>
+        </button>
+        <mat-menu #menu="matMenu">
+          <button mat-menu-item>
+            <mat-icon color="primary">add</mat-icon>
+            <span>Add Department</span>
+          </button>
+          <button mat-menu-item>
+            <mat-icon color="warn">clear</mat-icon>
+            <span>Remove This Division</span>
+          </button>
+        </mat-menu> 
+      </span>
+    </td>
+  </ng-container>
+
+
+  <!-- Division  Column -->
+  <ng-container matColumnDef="name">
+    <th mat-header-cell *matHeaderCellDef> Divisão </th>
+    <td mat-cell *matCellDef="let division">
+      <div [ngClass]="{'pending-item':division.status < 2}">
+        {{ division.name}}
+      </div>
+    </td>
+  </ng-container>
+
+  <!-- Expand Arrow Button-->
+  <ng-container matColumnDef="expand">
+    <th mat-header-cell *matHeaderCellDef aria-label="row actions">&nbsp;</th>
+    <td mat-cell *matCellDef="let division">
+      <button mat-icon-button aria-label="expand row" (click)="(section = section === division ? null : division); $event.stopPropagation()">
+        <mat-icon *ngIf="section !== division">keyboard_arrow_down</mat-icon>
+        <mat-icon *ngIf="section === division">keyboard_arrow_up</mat-icon>
+      </button>
+    </td>
+  </ng-container>
+
+  <!-- Expanded Content Column - The detail row is made up of this one column that spans across all columns -->
+  <ng-container matColumnDef="expandedDetail">
+    <td mat-cell *matCellDef="let division" [attr.colspan]="displayedColumns.length">
+      <div class="element-detail" [@detailExpand]="division == section ? 'expanded' : 'collapsed'">
+        <mat-list>
+          <mat-list-item class="mat-list-item-root" *ngFor="let branche of division.branches">
+              <span matListItemLine style="display: flex; align-items: center">
+                <button mat-icon-button [matMenuTriggerFor]="menu">
+                  <mat-icon>more_vert</mat-icon>
+                </button>
+                <mat-menu #menu="matMenu">
+                  <button mat-menu-item>
+                    <mat-icon color="primary">add</mat-icon>
+                    <span>Add Function</span>
+                  </button>
+                  <button mat-menu-item>
+                    <mat-icon color="warn">clear</mat-icon>
+                    <span>Remove Department</span>
+                  </button>
+                </mat-menu>
+                {{branche.section.name}}
+                <mat-list>
+                  <mat-list-item class="mat-list-item-child" *ngFor="let function of branche.functions">
+                    <span matListItemLine style="display: flex; align-items: center">
+                      <mat-icon *ngIf="function.status == 2" style="color:#00796B">done</mat-icon>
+                      <mat-icon *ngIf="function.status < 2" style="color:#fd7400">priority_high</mat-icon>
+                      {{function.position.name}} 
+                    </span>
+                  </mat-list-item>
+                </mat-list>
+              </span> 
+            </mat-list-item>
+        </mat-list>
+      </div>
+    </td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns, sticky: true"></tr>
+  <tr mat-row *matRowDef="let element; columns: displayedColumns;"
+      class="element-row"
+      [class.example-expanded-row]="section === element"
+      (click)="section = section === element ? null : element">
+  </tr>
+  <tr mat-row *matRowDef="let row; columns: ['expandedDetail']" class="detail-row"></tr>
+
+</table>
+  

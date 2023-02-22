@@ -1,0 +1,68 @@
+
+
+/* flutuar icone playlist_add para a direita do toolbal*/
+span{
+  display: inline;
+}
+
+/* Definição de espaçamento entre o icone more-vert e o elemento da linha */
+.more-option{
+  width: 0px;
+  padding-right:0px;
+}
+
+/*Configuração e posicionamento de itens da lista Role*/
+.mat-list-item-child{
+  height: 28px;
+  padding-left: 38px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+/*Remoção de padding da lista child, manter na mesma orientação da linha principal da tabela*/
+.mat-mdc-cell {
+  padding: 0px;
+}
+
+
+/* Definições de estilos Angular Material, https://material.angular.io/components/table/examples */
+tr.detail-row {
+  height: 0;
+}
+
+tr.element-row:not(.expanded-row):hover {
+  background: rgb(228, 228, 228);
+}
+
+tr.element-row:not(.expanded-row):active {
+  background: #efefef;
+}
+
+.element-row td {
+  border-bottom-width: 0;
+}
+
+.element-detail {
+  overflow: hidden;
+  display: flex;
+}
+
+/*--------- Fim do bloco ----------*/
+
+mat-list{
+  width: 100%;
+  padding:0;
+  background-color: whitesmoke
+}
+
+.mdc-list-item__secondary-text::before {
+  content: none;
+}
+
+.mat-mdc-list-item.mdc-list-item--with-two-lines {
+  height: 48px;
+}
+
+.mat-list-item-root{
+  border-bottom: solid 1px #c0c0c0;
+}

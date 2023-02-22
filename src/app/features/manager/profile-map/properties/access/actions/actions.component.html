@@ -1,0 +1,21 @@
+
+<mat-stepper headerPosition="top" #stepper>
+    
+  <mat-step [stepControl]="firstFormGroup" class="actions-dialog">
+    <ng-template matStepLabel>Itens</ng-template> 
+    <app-itens [accesses]='accesses'></app-itens>
+  </mat-step>
+    
+  <mat-step [stepControl]="secondFormGroup">
+    <ng-template matStepLabel>Approvals</ng-template>
+    <app-approvals [accesses]='accesses'></app-approvals>
+  </mat-step>
+
+  <mat-step>
+     <ng-template matStepLabel>Done</ng-template>
+     <app-done [accesses]='accesses'></app-done>
+  </mat-step>
+  
+</mat-stepper>
+
+

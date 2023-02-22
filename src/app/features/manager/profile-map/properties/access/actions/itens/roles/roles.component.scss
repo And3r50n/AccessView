@@ -1,0 +1,20 @@
+table {
+    width: 100%;
+    box-shadow:none;
+  }
+  
+  tr.mat-row:hover {
+    background: whitesmoke;
+  }
+  
+  tr.mat-row, tr.mat-footer-row {
+    height: 30px;
+  }
+  
+  td.mat-column-id{
+    width: 30px;
+  }
+  
+  td.mat-column-status{
+    width: 20px;
+  }

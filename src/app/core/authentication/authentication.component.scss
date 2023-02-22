@@ -1,0 +1,33 @@
+
+
+mat-form-field{
+    margin-left: 10px;
+    width: 95%;
+}
+
+.signin-form{
+    padding-top: 30px;
+    padding-bottom: 30px;
+}
+
+.container {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.signin-button{
+    width: 100%;
+    margin: 0;
+    position: relative;
+    left: 50%;
+    transform: translate(-50%);
+}
+
+.mat-divider.mat-divider-inset {
+    margin-left: 10px;
+    width: 95%;
+}

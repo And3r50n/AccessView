@@ -1,0 +1,26 @@
+
+.spacer{
+  flex: 1 1 auto;
+}
+
+section{
+  margin-left:5px;
+  margin-right:5px;
+  height: 80vh;
+  width: 100%
+}
+
+.system-wrapper{
+  width: 100%;
+  height: 100vh;
+  display: inline-flex;
+}
+
+.scroll-viewport{
+  height: 100%;
+  width: 100%;
+}
+
+.pending-item{
+  color: rgb(163, 160, 160);
+}

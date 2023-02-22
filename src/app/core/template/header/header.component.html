@@ -1,0 +1,19 @@
+<mat-toolbar color="primary">
+  <a class="logo" href="http://localhost:4200/home">
+    <img src="../../assets/image/fis_logo.png" alt="Access View - Home">
+  </a>
+  <button class="button-toolbar" mat-button [matMenuTriggerFor]="managerMenu">Manager</button>
+  <mat-menu #managerMenu="matMenu" yPosition="below">
+
+    <button mat-menu-item routerLink="./manager"><mat-icon color="primary"> list_alt</mat-icon>Mapa de Perfis</button>
+    <button mat-menu-item routerLink="./manager"><mat-icon color="primary">device_hub</mat-icon>Requisições</button>
+  </mat-menu>
+  <button class="button-toolbar" mat-button [matMenuTriggerFor]="adminMenu">Admin</button>
+  <mat-menu #adminMenu="matMenu" yPosition="below">
+    <button mat-menu-item routerLink="./admin">Admin</button>
+    <button mat-menu-item routerLink="./admin">Controle de Usuários</button>
+  </mat-menu>
+
+  <span class="spacer"></span>
+  <mat-icon routerLink="../login">account_circle</mat-icon>
+</mat-toolbar> 
