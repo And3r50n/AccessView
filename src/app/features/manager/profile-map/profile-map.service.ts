@@ -9,13 +9,13 @@ import { ProfileMap } from 'src/app/core/entities/ProfileMap';
 
 export class ProfileMapService {
 
-  private readonly API = 'main/profile'
+  private readonly API = "api/manager/profile/";
   
   constructor(private http: HttpClient) { 
   }
   
   findAllProfiles(){
-    return this.http.get<ProfileMap[]>(this.API);
+    return this.http.get<ProfileMap[]>(this.API+"all");
   }
 
 
