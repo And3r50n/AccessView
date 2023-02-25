@@ -13,7 +13,7 @@ export class PropertiesService {
   constructor(private http: HttpClient) { 
   }
 
-  private readonly API = 'main/profile/'
+  private readonly API = 'api/manager/profile/'
   private profileMap = new Subject<ProfileMap>();
 
   public findProfileMap(id: number): void{
