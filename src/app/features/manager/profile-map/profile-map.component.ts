@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { ProfileMap } from 'src/app/core/entities/ProfileMap';
+import { Profile } from 'src/app/core/entities/Profile';
 import { ProfileMapService } from './profile-map.service';
 
 
@@ -13,7 +13,7 @@ import { ProfileMapService } from './profile-map.service';
 
 export class ProfileMapComponent implements OnInit {
 
-  public profiles: ProfileMap[] = [];
+  public profiles: Profile[] = [];
   public columns: string[] = ['more', 'code', 'descript'];
 
   constructor(private service: ProfileMapService, private router: Router){

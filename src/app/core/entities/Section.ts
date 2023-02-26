@@ -1,5 +1,9 @@
+import { JobTitle } from "./JobTitle";
+
 export interface Section {
     id: number;
+    code: number;
     name: string;
-    created: string;
+    jobTitles: JobTitle[];
+    status: number;
 }

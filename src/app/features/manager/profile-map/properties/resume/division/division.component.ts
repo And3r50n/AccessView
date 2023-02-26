@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Division } from 'src/app/core/entities/Division';
+import { Department } from 'src/app/core/entities/Department';
 import { animate, state, style, transition, trigger } from '@angular/animations';
 import { ResumeService } from '../resume.service';
 import { Observable, of } from 'rxjs';
@@ -25,9 +25,9 @@ import { Observable, of } from 'rxjs';
 export class DivisionComponent implements OnInit {
 
 
-  public divisions$ = new Observable<Division[]>;
+  public divisions$ = new Observable<Department[]>;
   public displayedColumns = ['more', 'name', 'expand'];
-  public section: Division[] | null | undefined;
+  public department: Department[] | null | undefined;
 
   constructor(private service: ResumeService) {
     this.service.getDivisions().subscribe(divisions => {

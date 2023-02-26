@@ -1,11 +1,11 @@
 
-import { Division } from "./Division";
+import { Department } from "./Department";
 import { Resource } from "./Resource";
 
-export interface ProfileMap {
+export interface Profile {
     id: number;
     code: string;
     description: string;
-    divisions: Division[];
+    departments: Department[];
     owners: Resource[];
 }
