@@ -25,13 +25,13 @@ import { Observable, of } from 'rxjs';
 export class DivisionComponent implements OnInit {
 
 
-  public divisions$ = new Observable<Department[]>;
+  public departments = new Observable<Department[]>;
   public displayedColumns = ['more', 'name', 'expand'];
-  public department: Department[] | null | undefined;
+  public sections: Department[] | null | undefined;
 
   constructor(private service: ResumeService) {
-    this.service.getDivisions().subscribe(divisions => {
-      this.divisions$ = of(divisions)
+    this.service.getDepartments().subscribe(department => {
+      this.departments = of(department)
     });
   }
 

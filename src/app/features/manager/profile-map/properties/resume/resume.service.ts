@@ -11,12 +11,12 @@ import { PropertiesService } from '../properties.service';
 })
 export class ResumeService {
 
-  private divisions = new Subject<Department[]>();
+  private departments = new Subject<Department[]>();
   private owners = new Subject<Resource[]>();
 
   constructor(private service: PropertiesService) {
     service.getProfileMap().subscribe(profile => {
-      this.divisions.next(profile.departments);
+      this.departments.next(profile.departments);
       this.owners.next(profile.owners);
 
     })
@@ -26,8 +26,8 @@ export class ResumeService {
     return this.owners.asObservable();
   }
 
-  public getDivisions(){
-    return this.divisions.asObservable();
+  public getDepartments(){
+    return this.departments.asObservable();
   }
 
 
