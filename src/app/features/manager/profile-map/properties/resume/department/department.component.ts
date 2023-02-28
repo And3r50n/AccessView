@@ -1,16 +1,13 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { animate, state, style, transition, trigger } from '@angular/animations';
 import { ResumeService } from '../resume.service';
 import { Observable, of } from 'rxjs';
 import { Section } from 'src/app/core/entities/Section';
 
-
-
-
 @Component({
-  selector: 'app-division',
-  templateUrl: './division.component.html',
-  styleUrls: ['./division.component.scss'],
+  selector: 'app-department',
+  templateUrl: './department.component.html',
+  styleUrls: ['./department.component.scss'],
   animations: [
     trigger('detailExpand', [
       state('collapsed', style({height: '0px', minHeight: '0'})),
@@ -19,24 +16,16 @@ import { Section } from 'src/app/core/entities/Section';
     ]),
   ],
 })
-
-
-
-export class DivisionComponent implements OnInit {
-
+export class DepartmentComponent {
 
   public sections = new Observable<Section[]>;
   public displayedColumns = ['more', 'name', 'expand'];
   public hidden: Section[] | null | undefined;
 
   constructor(private service: ResumeService) {
-    this.service.getDepartments().subscribe(department => {
-      this.sections = of(department)
+    this.service.getSections().subscribe(section => {
+      this.sections = of(section)
     });
-  }
-
-  ngOnInit(): void {
-    
   }
 
 }

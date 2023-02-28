@@ -39,7 +39,7 @@ import { DoneComponent } from './properties/access/actions/done/done.component';
 import { ProfileOwnerComponent } from './properties/resume/profile-owner/profile-owner.component';
 import { AddSubApplicationComponent } from './properties/access/aplication/add-sub-application/add-sub-application.component';
 import { RolesComponent } from './properties/access/actions/itens/roles/roles.component';
-import { DivisionComponent } from './properties/resume/division/division.component';
+import { DepartmentComponent } from './properties/resume/department/department.component';
 
 
 
@@ -60,7 +60,7 @@ import { DivisionComponent } from './properties/resume/division/division.compone
     ProfileOwnerComponent,
     AddSubApplicationComponent,
     RolesComponent,
-    DivisionComponent
+    DepartmentComponent
   ],
   imports: [
     CommonModule,
