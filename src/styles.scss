@@ -40,6 +40,7 @@ $my-warn-color: (
   )
 );
 
+
 $my-palette-primary: mat-palette($my-primary-color);
 $my-palette-accent: mat-palette($my-accent-color);
 $my-palette-warn: mat-palette($my-warn-color);

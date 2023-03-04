@@ -6,7 +6,7 @@ import { AccessService } from './access.service';
 @Component({
   selector: 'app-access',
   templateUrl: './access.component.html',
-  styleUrls: ['./access.component.scss', '../properties.component.scss'],
+  styleUrls: ['./access.component.scss'],
 })
 
 

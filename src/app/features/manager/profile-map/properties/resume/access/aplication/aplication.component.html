@@ -1,14 +1,14 @@
 
-  <mat-toolbar>
-    <mat-label style="color: teal">Applications</mat-label>
-    <span class="spacer"></span>
-    <button matSuffix mat-icon-button (click)="showAllActions()">
-      <mat-icon color="warn">{{getIcon()}}</mat-icon>
-    </button>
-    <button matSuffix mat-icon-button (click)="addRootApplication()">
-      <mat-icon color="primary">playlist_add</mat-icon>
-    </button>
-  </mat-toolbar>
+<mat-toolbar>
+  <mat-label style="color: teal">Applications</mat-label>
+  <span class="spacer"></span>
+  <button matSuffix mat-icon-button (click)="showAllActions()">
+    <mat-icon color="warn">{{getIcon()}}</mat-icon>
+  </button>
+  <button matSuffix mat-icon-button (click)="addRootApplication()">
+    <mat-icon color="primary">playlist_add</mat-icon>
+  </button>
+</mat-toolbar>
 
 <cdk-virtual-scroll-viewport itemSize="50" class="scroll-viewport">
 

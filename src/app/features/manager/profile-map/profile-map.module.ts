@@ -25,22 +25,23 @@ import { MatDividerModule } from '@angular/material/divider';
 
 import { ProfileMapRoutingModule } from './profile-map-routing.module';
 import { ProfileMapComponent } from './profile-map.component';
-import { AccessComponent } from './properties/access/access.component';
-import { ActionsComponent } from './properties/access/actions/actions.component';
-import { ApprovalsComponent } from './properties/access/actions/approvals/approvals.component';
-import { ItensComponent } from './properties/access/actions/itens/itens.component';
-import { AddApplicationComponent } from './properties/access/aplication/add-application/add-application.component';
-import { AplicationComponent } from './properties/access/aplication/aplication.component';
-import { AddRoleComponent } from './properties/access/aplication/add-role/add-role.component';
+import { AccessComponent } from './properties/resume/access/access.component';
+import { ActionsComponent } from './properties/resume/access/actions/actions.component';
+import { ApprovalsComponent } from './properties/resume/access/actions/approvals/approvals.component';
+import { ItensComponent } from './properties/resume/access/actions/itens/itens.component';
+import { AddApplicationComponent } from './properties/resume/access/aplication/add-application/add-application.component';
+import { AplicationComponent } from './properties/resume/access/aplication/aplication.component';
+import { AddRoleComponent } from './properties/resume/access/aplication/add-role/add-role.component';
 import { PropertiesComponent } from './properties/properties.component';
 import { ResumeComponent } from './properties/resume/resume.component';
-import { ApproversComponent } from './properties/access/actions/approvals/approvers/approvers.component';
-import { DoneComponent } from './properties/access/actions/done/done.component';
+import { ApproversComponent } from './properties/resume/access/actions/approvals/approvers/approvers.component';
+import { DoneComponent } from './properties/resume/access/actions/done/done.component';
 import { ProfileOwnerComponent } from './properties/resume/profile-owner/profile-owner.component';
-import { AddSubApplicationComponent } from './properties/access/aplication/add-sub-application/add-sub-application.component';
-import { RolesComponent } from './properties/access/actions/itens/roles/roles.component';
+import { AddSubApplicationComponent } from './properties/resume/access/aplication/add-sub-application/add-sub-application.component';
+import { RolesComponent } from './properties/resume/access/actions/itens/roles/roles.component';
 import { DepartmentComponent } from './properties/resume/department/department.component';
-
+import { GeneralComponent } from './properties/resume/general/general.component';
+import { MatChipsModule } from '@angular/material/chips';
 
 
 @NgModule({
@@ -60,7 +61,8 @@ import { DepartmentComponent } from './properties/resume/department/department.c
     ProfileOwnerComponent,
     AddSubApplicationComponent,
     RolesComponent,
-    DepartmentComponent
+    DepartmentComponent,
+    GeneralComponent
   ],
   imports: [
     CommonModule,
@@ -87,7 +89,8 @@ import { DepartmentComponent } from './properties/resume/department/department.c
     MatTooltipModule,
     MatMenuModule,
     MatStepperModule,
-    MatDividerModule
+    MatDividerModule,
+    MatChipsModule
   ],
   providers: [
     //Colocar aqui os serviços que precisar utilizar a mesma instância em toda a aplicação. * Padrão sigleton

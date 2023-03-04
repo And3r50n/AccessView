@@ -1,14 +1,4 @@
-<mat-toolbar>
-    <mat-label style="color: teal">Resume</mat-label>
-    <span class="spacer"></span>
-    <button matSuffix mat-icon-button>
-        <mat-icon color="warn"></mat-icon>
-    </button>
-    <button matSuffix mat-icon-button>
-        <mat-icon color="primary">playlist_add</mat-icon>
-    </button>
-  </mat-toolbar>
-  
+
   <table mat-table [dataSource]="sections" multiTemplateDataRows class="mat-elevation-z8">
   
     <!-- More Menu Column -->
@@ -36,6 +26,7 @@
   
     <!-- Division  Column -->
     <ng-container matColumnDef="name">
+      
       <th mat-header-cell *matHeaderCellDef>Department</th>
       <td mat-cell *matCellDef="let section">
         <div [ngClass]="{'pending-item':section.status < 2}">
