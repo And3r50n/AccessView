@@ -23,7 +23,7 @@ export class AddApplicationComponent  {
 
 
   constructor(@Inject(MAT_DIALOG_DATA) private data: Access[], private service: AddApplicationService) {
-    this.service.getRootApplications(data).subscribe((application: Access[]) => {
+    this.service.getApplications(data).subscribe((application: Access[]) => {
       this.dataSource = new MatTableDataSource(application);
     }); 
   }

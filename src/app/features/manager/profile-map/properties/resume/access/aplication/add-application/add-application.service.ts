@@ -10,19 +10,19 @@ import { AccessService } from '../../access.service';
 })
 export class AddApplicationService {
 
-  private readonly API = '/main/application/root'
+  private readonly API = '/api/application/all'
 
   constructor(private http: HttpClient, private service: AccessService) {
   }
 
-  public getRootApplications(accesses: Access[]): any{
+  public getApplications(accesses: Access[]): any{
     let params = new HttpParams();
     params = params.append('excepts', this.getAccessID(accesses));
     return this.http.get<Observable<Access[]>>(this.API,{params});
   }
 
   private getAccessID(accesses: Access[]): string {
-    let args = accesses.map(access => access.id);
+    let args = accesses.map(access => access.code);
     return args.join(',');
   }
 

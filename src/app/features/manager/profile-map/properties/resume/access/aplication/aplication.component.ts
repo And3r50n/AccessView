@@ -109,6 +109,7 @@ export class AplicationComponent implements OnInit {
 
   private access: Access ={
     id: 0,
+    code:0,
     name:'',
     itens:[],
     status:0,
