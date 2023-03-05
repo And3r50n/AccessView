@@ -19,14 +19,14 @@ export class ApprovalsService {
 
   public getApprovals(accesses: Access[]): any{
     let params = new HttpParams();
-    params = params.append('only', this.getSubApplicationsId(accesses));
+    params = params.append('only', this.getItensID(accesses));
     return this.http.get<Observable<Approvals[]>>(this.API,{params});
   }
 
-  private getSubApplicationsId(accesses: Access[]): string {
+  private getItensID(accesses: Access[]): string {
     let args = accesses.map(access => 
-      access.branches.map(
-        branche => branche.application.id));
+      access.itens.map(
+        item => item.id));
     return args.join(',');
   }
 

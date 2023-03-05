@@ -1,8 +1,9 @@
-import { SubApplication } from "./access/application/SubApplication";
+
+import { Item } from "./access/Item";
 
 
 export interface Approvals {
     id: number;
     name: string;
-    applications: SubApplication[];
+    itens: Item[];
 }

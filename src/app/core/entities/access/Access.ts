@@ -1,9 +1,10 @@
-import { RootApplication } from "./application/RootApplication";
-import { BranchApplication } from "./BranchApplication";
+
+
+import { Item } from "./Item";
 
 export interface Access {
     id: number;
-    application: RootApplication;
-    branches: BranchApplication[];    
-    status: number;
+    name: String;
+    itens: Item[];
+    status: number;    
 }

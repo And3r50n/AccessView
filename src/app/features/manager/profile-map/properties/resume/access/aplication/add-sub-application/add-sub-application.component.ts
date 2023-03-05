@@ -3,7 +3,7 @@ import { Component, Inject, OnInit } from '@angular/core';
 import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { MatTableDataSource } from '@angular/material/table';
 import { Access } from 'src/app/core/entities/access/Access';
-import { SubApplication } from 'src/app/core/entities/access/application/SubApplication';
+import { Item } from 'src/app/core/entities/access/Item';
 import { AddSubApplicationService } from './add-sub-application.service';
 
 @Component({
@@ -14,9 +14,9 @@ import { AddSubApplicationService } from './add-sub-application.service';
 export class AddSubApplicationComponent implements OnInit {
 
 
-  public applications: SubApplication[] = [];
-  public dataSource = new MatTableDataSource(this.applications);
-  public displayedColumns: string[] = ['select','name', 'domain', 'environment'];
+  public itens: Item[] = [];
+  public dataSource = new MatTableDataSource(this.itens);
+  public displayedColumns: string[] = ['select','name'];
   private checking = new SelectionModel<any>(true,[]);
   public checked = new SelectionModel<any>(true,[]);
 
@@ -25,14 +25,14 @@ export class AddSubApplicationComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.service.getSubApplications(this.data).subscribe((application: SubApplication[]) => {
+    this.service.getItens(this.data).subscribe((application: Item[]) => {
       this.dataSource = new MatTableDataSource(application);
     }); 
   }
 
 
-  putToggled(application: SubApplication){
-    this.checking.toggle(application);
+  putToggled(item: Item){
+    this.checking.toggle(item);
   }
 
   done(){

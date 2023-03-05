@@ -25,14 +25,14 @@ export class ActionsService {
   public filterStructuresWithRolesStatus0(data: Access[]): any[]{
     return data.map(access => {
       let newAccess = {...access};
-      newAccess.branches = access.branches
-        .filter(brancheSubApplication => brancheSubApplication.branches.some(branchRole => branchRole.status === 0))
-        .map(brancheSubApplication => {
-          let newBrancheSubApplication = {...brancheSubApplication};
-          newBrancheSubApplication.branches = brancheSubApplication.branches.filter(branchRole => branchRole.status === 0);
-          return newBrancheSubApplication;
+      newAccess.itens = access.itens
+        .filter(item => item.roles.some(role => role.status === 0))
+        .map(item => {
+          let newItem = {...item};
+          newItem.roles = item.roles.filter(role => role.status === 0);
+          return newItem;
         });
-      return newAccess.branches.length > 0 ? newAccess : null;
+      return newAccess.itens.length > 0 ? newAccess : null;
     }).filter(access => access !== null);
   }
 

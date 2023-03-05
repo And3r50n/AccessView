@@ -2,9 +2,9 @@ import { SelectionModel } from '@angular/cdk/collections';
 import { Component, Inject } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
 import { AddRoleService } from './add-role.service';
-import { RoleApplication } from 'src/app/core/entities/access/application/role/RoleApplication';
-import { BranchApplication } from 'src/app/core/entities/access/BranchApplication';
 import { MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { Role } from 'src/app/core/entities/access/Role';
+import { Item } from 'src/app/core/entities/access/Item';
 
 @Component({
   selector: 'app-add-group',
@@ -16,19 +16,21 @@ import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 
 export class AddRoleComponent{
 
-  private _roles: RoleApplication[] = [];
-  private checking = new SelectionModel<RoleApplication>(true,[]);
-  public checked = new SelectionModel<RoleApplication>(true,[]);
+  private _roles: Role[] = [];
+  private checking = new SelectionModel<Role>(true,[]);
+  public checked = new SelectionModel<Role>(true,[]);
   public roles = new MatTableDataSource(this._roles);
   public displayedColumns: string[] = ['select', 'property', 'attribute'];
 
-  constructor(@Inject(MAT_DIALOG_DATA) private data: BranchApplication, private service: AddRoleService) {
-    this.service.getRoles(data).subscribe((roles: RoleApplication[]) => {
+
+  
+  constructor(@Inject(MAT_DIALOG_DATA) private item: Item, private service: AddRoleService) {
+    this.service.getRoles(item).subscribe((roles: Role[]) => {
       this.roles = new MatTableDataSource(roles);
     });
   }
 
-  putToggled(role: RoleApplication){
+  putToggled(role: Role){
     role.status = 0;
     this.checking.toggle(role);
   }

@@ -2,17 +2,15 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { MatTable } from '@angular/material/table';
 import { Access } from 'src/app/core/entities/access/Access';
-import { SubApplication } from 'src/app/core/entities/access/application/SubApplication';
-import { RootApplication } from 'src/app/core/entities/access/application/RootApplication';
 import { AddApplicationComponent } from '../aplication/add-application/add-application.component';
 import { ActionsComponent } from '../actions/actions.component';
 import { AplicationService } from './aplication.service';
 import { animate, state, style, transition, trigger } from '@angular/animations';
-import { BranchApplication } from 'src/app/core/entities/access/BranchApplication';
 import { AddSubApplicationComponent } from './add-sub-application/add-sub-application.component';
 import { AddRoleComponent } from './add-role/add-role.component';
-import { RoleApplication } from 'src/app/core/entities/access/application/role/RoleApplication';
-import { BranchRole } from 'src/app/core/entities/access/application/BranchRole';
+import { Role } from 'src/app/core/entities/access/Role';
+import { Item } from 'src/app/core/entities/access/Item';
+
 
 @Component({
   selector: 'app-aplication',
@@ -31,8 +29,8 @@ export class AplicationComponent implements OnInit {
 
   @ViewChild(MatTable) table!: MatTable<Access>;
   public accesses: Access[] = [];
-  public displayedColumns = ['more', 'name','platform','status', 'expand'];
-  public subApplications: Access | null | undefined;
+  public displayedColumns = ['more', 'name','status', 'expand'];
+  public hidded: Access | null | undefined;
 
   constructor(private dialog: MatDialog, private service: AplicationService) {
   }
@@ -46,9 +44,9 @@ export class AplicationComponent implements OnInit {
     this.access = access;
   }
 
-  public setBranchApplication(branche: BranchApplication){
-    this.service.setBranchApplication(branche);
-    this.branche = branche;
+  public setBranchApplication(item: Item){
+    this.service.setItem(item);
+    this.item = item;
   }
 
   public addRootApplication() {  
@@ -67,11 +65,11 @@ export class AplicationComponent implements OnInit {
     });
   }
 
-  public addRole(branche: BranchRole) {
-    const dialog = this.dialog.open(AddRoleComponent, {data: branche});
+  public addRole(role: Role) {
+    const dialog = this.dialog.open(AddRoleComponent, {data: role});
     dialog.afterClosed().subscribe(result => {
       this.buildBranches(dialog.componentInstance.checked.selected);
-      this.service.setBranchApplication(this.branche);
+      this.service.setItem(this.item);
     });
   }
 
@@ -89,80 +87,30 @@ export class AplicationComponent implements OnInit {
   }
 
 
+  private buildBranches(roles: Role[]){
 
-
-  private buildBranches(roles: RoleApplication[]){
-    let branches: BranchRole[] = [];
-    roles.forEach(role => {
-      let branch: BranchRole ={
-        id: 0,
-        role: role,
-        created: '',
-        update: '',
-        status: 0
-      }
-      this.branche.branches.push(branch);
-    })
   }
 
-  private builderBranchApplications(applications: SubApplication[]){
-    applications.forEach(application =>{
-      let branch: BranchApplication ={
-        id: 0,
-        branches: [],
-        application: application,
-        created: '',
-        updated: '',
-        status: 0
-      }
-      this.access.branches.push(branch);
-    })
+  private builderBranchApplications(itens: Item[]){
+
   }
 
-  private builderNewAccess(applications: RootApplication[]){
-    applications.forEach(application =>{
-      let access: Access = {
-        id: 0,
-        application: application,
-        branches: [],    
-        status: 0,
-      }
-      this.accesses.push(access);
-    })
+  private builderNewAccess(access: Access[]){
+
   }
 
 
-  public branche: BranchApplication = {
+  public item: Item = {
     id: 0,
-    branches: [],
+    name:'',
+    roles:[],
     status: 0,
-    created: '',
-    updated: '',
-    application:{
-      id: 0,
-      name: '',
-      rootApplicationId: 0,
-      environment:'',
-      enabled: false,
-      domain:'',
-      url:'',
-      ip:'',
-      created:'',
-      updated:'',
-    }
   };
 
   private access: Access ={
     id: 0,
-    application:{
-      id:0,
-      name:'',
-      platform:'',
-      enabled: false,
-      created:'',
-      updated:''
-    },
-    branches:[],
+    name:'',
+    itens:[],
     status:0,
   };
 

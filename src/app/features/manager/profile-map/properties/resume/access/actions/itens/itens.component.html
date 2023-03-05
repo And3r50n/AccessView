@@ -7,23 +7,23 @@
           <button matSuffix mat-icon-button>
             <mat-icon color="primary">more_vert</mat-icon>
           </button>
-          {{access.application.name}}
+          {{access.name}}
         </div>
-        <table mat-table [dataSource]="access.branches" class="mat-elevation-z8">
+        <table mat-table [dataSource]="access.itens" class="mat-elevation-z8">
       
           <!-- application Column -->
           <ng-container matColumnDef="item" stickyEnd>
             <th mat-header-cell *matHeaderCellDef>Item</th>
-            <td mat-cell *matCellDef="let branche">
-              {{ branche.application.name }}
+            <td mat-cell *matCellDef="let item">
+              {{ item.name }}
             </td>
           </ng-container>
 
           <!-- status  Column -->
           <ng-container matColumnDef="status" stickyEnd>
             <th mat-header-cell *matHeaderCellDef>Status</th>
-            <td mat-cell *matCellDef="let branche">
-              {{ branche.status }}
+            <td mat-cell *matCellDef="let item">
+              {{ item.status }}
             </td>
           </ng-container>
 

@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, Subject } from 'rxjs';
 import { Access } from 'src/app/core/entities/access/Access';
-import { BranchApplication } from 'src/app/core/entities/access/BranchApplication';
+import { Item } from 'src/app/core/entities/access/Item';
 
 
 @Injectable({
@@ -11,11 +11,12 @@ import { BranchApplication } from 'src/app/core/entities/access/BranchApplicatio
 
 export class AccessService {
 
-  private readonly API = '/main/access/';
+  private readonly API = '/api/manager/profile/access/';
   private warnings = new Subject<number>();
   private accesses = new Subject<Access[]>();
-  private branche = new Subject<BranchApplication>(); 
   private access = new Subject<Access>();
+  private item = new Subject<Item>(); 
+
 
   constructor(private http: HttpClient) {
 
@@ -48,12 +49,12 @@ export class AccessService {
     return this.access.asObservable();
   }
 
-  public setBranchApplication(branch: BranchApplication){
-    this.branche.next(branch);
+  public setItem(item: Item){
+    this.item.next(item);
   }
 
   public getBranchApplication(){
-    return this.branche.asObservable();
+    return this.item.asObservable();
   }
 
   public getWarnings(){

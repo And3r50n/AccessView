@@ -1,6 +1,6 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { MAT_DIALOG_DATA } from '@angular/material/dialog';
-import { BranchRole } from 'src/app/core/entities/access/application/BranchRole';
+import { Role } from 'src/app/core/entities/access/Role';
 
 @Component({
   selector: 'app-roles',
@@ -9,12 +9,12 @@ import { BranchRole } from 'src/app/core/entities/access/application/BranchRole'
 })
 export class RolesComponent implements OnInit {
 
-  public branches: BranchRole[] = [];
-  public displayedColumns = ['item', 'updated', 'status'];
+  public roles: Role[] = [];
+  public displayedColumns = ['item', 'status'];
 
 
-  constructor(@Inject(MAT_DIALOG_DATA) private data: BranchRole[]) {
-    this.branches = data;
+  constructor(@Inject(MAT_DIALOG_DATA) private data: Role[]) {
+    this.roles = data;
   }
 
   ngOnInit(): void {

@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Access } from 'src/app/core/entities/access/Access';
-import { BranchApplication } from 'src/app/core/entities/access/BranchApplication';
+import { Item } from 'src/app/core/entities/access/Item';
 import { AccessService } from '../access.service';
 
 @Injectable({
@@ -23,8 +23,8 @@ export class AplicationService {
     return this.service.setAccesses(accesses);
   }
 
-  public setBranchApplication(branche: BranchApplication){
-    this.service.setBranchApplication(branche);
+  public setItem(item: Item){
+    this.service.setItem(item);
   }
 
 
