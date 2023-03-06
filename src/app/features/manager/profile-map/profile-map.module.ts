@@ -41,6 +41,7 @@ import { AddItemComponent } from './properties/resume/access/aplication/add-item
 import { RolesComponent } from './properties/resume/access/actions/itens/roles/roles.component';
 import { DepartmentComponent } from './properties/resume/department/department.component';
 import { MatChipsModule } from '@angular/material/chips';
+import { PropertiesItemComponent } from './properties/resume/access/aplication/properties-item/properties-item.component';
 
 
 @NgModule({
@@ -60,7 +61,8 @@ import { MatChipsModule } from '@angular/material/chips';
     ProfileOwnerComponent,
     AddItemComponent,
     RolesComponent,
-    DepartmentComponent
+    DepartmentComponent,
+    PropertiesItemComponent
   ],
   imports: [
     CommonModule,
