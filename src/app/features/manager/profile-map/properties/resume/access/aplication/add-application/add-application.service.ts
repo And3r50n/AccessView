@@ -22,7 +22,7 @@ export class AddApplicationService {
   }
 
   private getAccessID(accesses: Access[]): string {
-    let args = accesses.map(access => access.code);
+    let args = accesses.map(access => access.applicationId);
     return args.join(',');
   }
 

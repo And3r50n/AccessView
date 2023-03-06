@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable, Subject } from 'rxjs';
+import { catchError, Observable, Subject, throwError } from 'rxjs';
 import { Profile } from 'src/app/core/entities/Profile';
 
 @Injectable({
@@ -10,20 +10,25 @@ import { Profile } from 'src/app/core/entities/Profile';
 
 export class PropertiesService {
 
-  constructor(private http: HttpClient) { 
-  }
 
   private readonly API = 'api/manager/profile/'
   private profile = new Subject<Profile>();
 
-  public findProfileMap(id: number): void{
-    this._findProfileMap(id).subscribe((profile: Profile) => this.profile.next(profile))
+
+  constructor(private http: HttpClient) { 
+
   }
 
-  private _findProfileMap(id: number): any{
-    return this.http.get<Observable<Profile>>(this.API+id);
+  public findProfileById(id: number): void {
+    this.http.get<Profile>(`${this.API}/${id}`).pipe(
+      catchError(() => {
+        return throwError(() => new Error('Error'));
+      })
+    ).subscribe(
+      (profile: Profile) => this.profile.next(profile)
+    );
   }
-
+  
   public getProfileMap(): Observable<Profile>{
     return this.profile.asObservable();
   }

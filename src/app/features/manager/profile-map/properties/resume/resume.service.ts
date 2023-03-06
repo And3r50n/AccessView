@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Subject } from 'rxjs';
 import { Resource } from 'src/app/core/entities/Resource';
-import { Section } from 'src/app/core/entities/Section';
+import { Department } from 'src/app/core/entities/Department';
 import { PropertiesService } from '../properties.service';
 
 
@@ -11,12 +11,12 @@ import { PropertiesService } from '../properties.service';
 })
 export class ResumeService {
 
-  private sections = new Subject<Section[]>();
+  private departments = new Subject<Department[]>();
   private owners = new Subject<Resource[]>();
 
   constructor(private service: PropertiesService) {
     service.getProfileMap().subscribe(profile => {
-      this.sections.next(profile.sections);
+      this.departments.next(profile.departments);
       this.owners.next(profile.owners);
 
     })
@@ -26,8 +26,8 @@ export class ResumeService {
     return this.owners.asObservable();
   }
 
-  public getSections(){
-    return this.sections.asObservable();
+  public getDepartments(){
+    return this.departments.asObservable();
   }
 
 

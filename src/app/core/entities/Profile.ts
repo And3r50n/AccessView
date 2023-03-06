@@ -1,11 +1,11 @@
 
 import { Resource } from "./Resource";
-import { Section } from "./Section";
+import { Department } from "./Department";
 
 export interface Profile {
     id: number;
     code: string;
     description: string;
-    sections: Section[],
+    departments: Department[],
     owners: Resource[];
 }

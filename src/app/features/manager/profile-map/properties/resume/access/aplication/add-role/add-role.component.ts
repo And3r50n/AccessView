@@ -25,9 +25,11 @@ export class AddRoleComponent{
 
   
   constructor(@Inject(MAT_DIALOG_DATA) private item: Item, private service: AddRoleService) {
+    /*
     this.service.getRoles(item).subscribe((roles: Role[]) => {
       this.roles = new MatTableDataSource(roles);
     });
+    */
   }
 
   putToggled(role: Role){

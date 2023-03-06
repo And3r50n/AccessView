@@ -16,10 +16,10 @@ export class AddRoleService {
 
   constructor(private http: HttpClient) { }
 
-  public getRoles(item: Item): any{
+  public getRoles(id: number, roles: Role[]): any{
     let params = new HttpParams();
-    params = params.append('id', item.id);
-    params = params.append('excepts', this.getRolesIdExcepts(item.roles));
+    params = params.append('id', id);
+    params = params.append('excepts', this.getRolesIdExcepts(roles));
     return this.http.get<Observable<Role[]>>(this.API,{params});
   }
 

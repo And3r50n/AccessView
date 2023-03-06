@@ -20,7 +20,7 @@ export class ActionsComponent{
 
 
   constructor(@Inject(MAT_DIALOG_DATA) private data: Access[], private formBuilder: UntypedFormBuilder, private service: ActionsService) {
-    this. accesses = this.service.filterStructuresWithRolesStatus0(data);
+    //this. accesses = this.service.filterStructuresWithRolesStatus0(data);
   }
 
 

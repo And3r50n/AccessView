@@ -1,6 +1,6 @@
 import { JobTitle } from "./JobTitle";
 
-export interface Section {
+export interface Department {
     id: number;
     code: number;
     name: string;

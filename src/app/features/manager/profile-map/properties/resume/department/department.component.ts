@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { animate, state, style, transition, trigger } from '@angular/animations';
 import { ResumeService } from '../resume.service';
 import { Observable, of } from 'rxjs';
-import { Section } from 'src/app/core/entities/Section';
+import { Department } from 'src/app/core/entities/Department';
 
 @Component({
   selector: 'app-department',
@@ -18,13 +18,13 @@ import { Section } from 'src/app/core/entities/Section';
 })
 export class DepartmentComponent {
 
-  public sections = new Observable<Section[]>;
+  public departments = new Observable<Department[]>;
   public displayedColumns = ['more', 'name', 'expand'];
-  public hidden: Section[] | null | undefined;
+  public collapsed: Department[] | null | undefined;
 
   constructor(private service: ResumeService) {
-    this.service.getSections().subscribe(section => {
-      this.sections = of(section)
+    this.service.getDepartments().subscribe(department => {
+      this.departments = of(department)
     });
   }
 

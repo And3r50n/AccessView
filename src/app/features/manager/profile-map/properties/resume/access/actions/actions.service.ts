@@ -22,7 +22,8 @@ export class ActionsService {
   }
 
 
-  public filterStructuresWithRolesStatus0(data: Access[]): any[]{
+  public filterStructuresWithRolesStatus0(data: Access[]){
+    /*
     return data.map(access => {
       let newAccess = {...access};
       newAccess.itens = access.itens
@@ -34,6 +35,7 @@ export class ActionsService {
         });
       return newAccess.itens.length > 0 ? newAccess : null;
     }).filter(access => access !== null);
+    */
   }
 
   

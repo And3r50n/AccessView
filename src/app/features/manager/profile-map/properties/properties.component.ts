@@ -11,15 +11,15 @@ import { PropertiesService } from './properties.service';
 
 export class PropertiesComponent implements OnInit {
 
-  public codeProfile: string = 'PF0000';
+  public code: string = 'PF0000';
 
   constructor(private route: ActivatedRoute, private service: PropertiesService) {
   }
 
   ngOnInit() {
     this.route.queryParams.subscribe(params => {
-      this.service.findProfileMap(params['id']);
-      this.service.getProfileMap().subscribe(profile => this.codeProfile = profile.code+" - "+profile.description);
+      this.service.findProfileById(params['id']);
+      this.service.getProfileMap().subscribe(profile => this.code = profile.code+" - "+profile.description);
     });
   }
 

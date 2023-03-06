@@ -30,7 +30,7 @@ export class AplicationComponent implements OnInit {
   @ViewChild(MatTable) table!: MatTable<Access>;
   public accesses: Access[] = [];
   public displayedColumns = ['more', 'name','status', 'expand'];
-  public hidded: Access | null | undefined;
+  public collapsed: Access | null | undefined;
 
   constructor(private dialog: MatDialog, private service: AplicationService) {
   }
@@ -103,13 +103,12 @@ export class AplicationComponent implements OnInit {
   public item: Item = {
     id: 0,
     name:'',
-    roles:[],
     status: 0,
   };
 
   private access: Access ={
     id: 0,
-    code:0,
+    applicationId:0,
     name:'',
     itens:[],
     status:0,
