@@ -6,7 +6,7 @@ import { AddApplicationComponent } from '../aplication/add-application/add-appli
 import { ActionsComponent } from '../actions/actions.component';
 import { AplicationService } from './aplication.service';
 import { animate, state, style, transition, trigger } from '@angular/animations';
-import { AddSubApplicationComponent } from './add-sub-application/add-sub-application.component';
+import { AddItemComponent } from './add-item/add-item.component';
 import { AddRoleComponent } from './add-role/add-role.component';
 import { Role } from 'src/app/core/entities/access/Role';
 import { Item } from 'src/app/core/entities/access/Item';
@@ -52,23 +52,23 @@ export class AplicationComponent implements OnInit {
   public addRootApplication() {  
     const dialog = this.dialog.open(AddApplicationComponent, {data:this.accesses});
     dialog.afterClosed().subscribe(result => {
-      this.builderNewAccess(dialog.componentInstance.checked.selected);
+      this.builderAccesses(dialog.componentInstance.checked.selected);
       this.service.setAccesses(this.accesses);
       this.table.renderRows();
     });
   }
 
   public addSubApplication(access: Access) { 
-    const dialog = this.dialog.open(AddSubApplicationComponent, {data: access});
+    const dialog = this.dialog.open(AddItemComponent, {data: access});
     dialog.afterClosed().subscribe(result => {
-      this.builderBranchApplications(dialog.componentInstance.checked.selected);
+      this.builderItens(dialog.componentInstance.checked.selected);
     });
   }
 
   public addRole(role: Role) {
     const dialog = this.dialog.open(AddRoleComponent, {data: role});
     dialog.afterClosed().subscribe(result => {
-      this.buildBranches(dialog.componentInstance.checked.selected);
+      this.buildRoles(dialog.componentInstance.checked.selected);
       this.service.setItem(this.item);
     });
   }
@@ -87,21 +87,22 @@ export class AplicationComponent implements OnInit {
   }
 
 
-  private buildBranches(roles: Role[]){
+  private buildRoles(roles: Role[]){
 
   }
 
-  private builderBranchApplications(itens: Item[]){
+  private builderItens(itens: Item[]){
 
   }
 
-  private builderNewAccess(access: Access[]){
+  private builderAccesses(access: Access[]){
 
   }
 
 
   public item: Item = {
     id: 0,
+    itemId:0,
     name:'',
     status: 0,
   };
@@ -111,6 +112,7 @@ export class AplicationComponent implements OnInit {
     applicationId:0,
     name:'',
     itens:[],
+    accesses:[],
     status:0,
   };
 

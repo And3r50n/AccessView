@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { Observable, Subject } from 'rxjs';
 import { Access } from 'src/app/core/entities/access/Access';
 import { Item } from 'src/app/core/entities/access/Item';
+import { PropertiesService } from '../../properties.service';
 
 
 @Injectable({
@@ -11,38 +12,30 @@ import { Item } from 'src/app/core/entities/access/Item';
 
 export class AccessService {
 
-  private readonly API = '/api/manager/profile/access/';
   private warnings = new Subject<number>();
   private accesses = new Subject<Access[]>();
   private access = new Subject<Access>();
   private item = new Subject<Item>(); 
 
 
-  constructor(private http: HttpClient) {
+  constructor(private http: HttpClient, private service: PropertiesService) {
 
   }
 
-  public findAccess(id: number): void{
-    this.findProfileAccess(id).subscribe(
-      (accesses: Access[]) => this.accesses.next(accesses),
-      (error: string) => console.log('Ocorreu uma falha: '+error)
-    );
+  public _getAccesses$(id: number): void{
+    this.service.getProfileMap().subscribe(profile => this.accesses.next(profile.accesses))
   }  
-
-  private findProfileAccess(id: number): any{
-    return this.http.get<Observable<Access[]>>(this.API+id);
-  }
 
   public setAccesses(accesses: Access[]){
     this.accesses.next(accesses);
   }
 
-  public setAccess(access: Access){
-    this.access.next(access);
-  }
-
   public getAccesses(){
     return this.accesses.asObservable();
+  }
+
+  public setAccess(access: Access){
+    this.access.next(access);
   }
 
   public getAccess(){
@@ -53,7 +46,7 @@ export class AccessService {
     this.item.next(item);
   }
 
-  public getBranchApplication(){
+  public getItem(){
     return this.item.asObservable();
   }
 

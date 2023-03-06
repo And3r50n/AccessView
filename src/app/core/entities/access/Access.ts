@@ -7,5 +7,6 @@ export interface Access {
     applicationId: number;
     name: String;
     itens: Item[];
+    accesses?: Access[];
     status: number;    
 }

@@ -25,11 +25,11 @@
           <mat-menu #menu="matMenu">
             <button mat-menu-item (click)="addSubApplication(access)">
               <mat-icon color="primary">add</mat-icon>
-              <span>Add Sub Application</span>
+              <span>Add Item</span>
             </button>
             <button mat-menu-item>
               <mat-icon color="warn">clear</mat-icon>
-              <span>Remove This Root Application</span>
+              <span>Remove This Application</span>
             </button>
           </mat-menu> 
         </span>
@@ -78,13 +78,17 @@
                     <mat-icon>more_vert</mat-icon>
                   </button>
                   <mat-menu #menu="matMenu">
+                    <button mat-menu-item>
+                      <mat-icon color="primary">subdirectory_arrow_right</mat-icon>
+                      <span>View this Item</span>
+                    </button>
                     <button mat-menu-item (click)="addRole(item)">
-                      <mat-icon color="primary">add</mat-icon>
-                      <span>Add Role</span>
+                      <mat-icon>transform</mat-icon>
+                      <span>Change this Item</span>
                     </button>
                     <button mat-menu-item>
                       <mat-icon color="warn">clear</mat-icon>
-                      <span>Remove Application</span>
+                      <span>Remove this Item</span>
                     </button>
                   </mat-menu>
                   {{item.name}}

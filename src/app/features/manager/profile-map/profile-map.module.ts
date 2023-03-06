@@ -37,10 +37,9 @@ import { ResumeComponent } from './properties/resume/resume.component';
 import { ApproversComponent } from './properties/resume/access/actions/approvals/approvers/approvers.component';
 import { DoneComponent } from './properties/resume/access/actions/done/done.component';
 import { ProfileOwnerComponent } from './properties/resume/profile-owner/profile-owner.component';
-import { AddSubApplicationComponent } from './properties/resume/access/aplication/add-sub-application/add-sub-application.component';
+import { AddItemComponent } from './properties/resume/access/aplication/add-item/add-item.component';
 import { RolesComponent } from './properties/resume/access/actions/itens/roles/roles.component';
 import { DepartmentComponent } from './properties/resume/department/department.component';
-import { GeneralComponent } from './properties/resume/general/general.component';
 import { MatChipsModule } from '@angular/material/chips';
 
 
@@ -59,10 +58,9 @@ import { MatChipsModule } from '@angular/material/chips';
     ApproversComponent,
     DoneComponent,
     ProfileOwnerComponent,
-    AddSubApplicationComponent,
+    AddItemComponent,
     RolesComponent,
-    DepartmentComponent,
-    GeneralComponent
+    DepartmentComponent
   ],
   imports: [
     CommonModule,

@@ -20,7 +20,7 @@ export class PropertiesService {
   }
 
   public findProfileById(id: number): void {
-    this.http.get<Profile>(`${this.API}/${id}`).pipe(
+    this.http.get<Profile>(`${this.API}${id}`).pipe(
       catchError(() => {
         return throwError(() => new Error('Error'));
       })

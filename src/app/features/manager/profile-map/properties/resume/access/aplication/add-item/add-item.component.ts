@@ -4,14 +4,14 @@ import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { MatTableDataSource } from '@angular/material/table';
 import { Access } from 'src/app/core/entities/access/Access';
 import { Item } from 'src/app/core/entities/access/Item';
-import { AddSubApplicationService } from './add-sub-application.service';
+import { AddSubApplicationService } from './add-item.service';
 
 @Component({
-  selector: 'app-sub-add-application',
-  templateUrl: './add-sub-application.component.html',
-  styleUrls: ['./add-sub-application.component.scss']
+  selector: 'app-add-item',
+  templateUrl: './add-item.component.html',
+  styleUrls: ['./add-item.component.scss']
 })
-export class AddSubApplicationComponent implements OnInit {
+export class AddItemComponent implements OnInit {
 
 
   public itens: Item[] = [];

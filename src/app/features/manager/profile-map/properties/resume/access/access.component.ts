@@ -18,7 +18,7 @@ export class AccessComponent implements OnInit {
 
   ngOnInit() {
     this.route.queryParams.subscribe(params => {
-      this.service.findAccess(params['id']);
+      this.service._getAccesses$(params['id']);
     });
   }
 
