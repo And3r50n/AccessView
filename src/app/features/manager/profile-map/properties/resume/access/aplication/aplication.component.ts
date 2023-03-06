@@ -10,6 +10,7 @@ import { AddItemComponent } from './add-item/add-item.component';
 import { AddRoleComponent } from './add-role/add-role.component';
 import { Role } from 'src/app/core/entities/access/Role';
 import { Item } from 'src/app/core/entities/access/Item';
+import { PropertiesItemComponent } from './properties-item/properties-item.component';
 
 
 @Component({
@@ -44,12 +45,12 @@ export class AplicationComponent implements OnInit {
     this.access = access;
   }
 
-  public setBranchApplication(item: Item){
+  public setItem(item: Item){
     this.service.setItem(item);
     this.item = item;
   }
 
-  public addRootApplication() {  
+  public addApplication() {  
     const dialog = this.dialog.open(AddApplicationComponent, {data:this.accesses});
     dialog.afterClosed().subscribe(result => {
       this.builderAccesses(dialog.componentInstance.checked.selected);
@@ -58,7 +59,7 @@ export class AplicationComponent implements OnInit {
     });
   }
 
-  public addSubApplication(access: Access) { 
+  public addItem(access: Access) { 
     const dialog = this.dialog.open(AddItemComponent, {data: access});
     dialog.afterClosed().subscribe(result => {
       this.builderItens(dialog.componentInstance.checked.selected);
@@ -74,6 +75,9 @@ export class AplicationComponent implements OnInit {
   }
 
 
+  public viewThisItem(item: Item){
+    const dialog = this.dialog.open(PropertiesItemComponent, {data: item});
+  }
 
 
 
