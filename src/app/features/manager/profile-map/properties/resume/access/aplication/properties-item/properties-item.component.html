@@ -1,1 +1,33 @@
-<p>properties-item works!</p>
+<div class="application-dialog">
+
+    <mat-stepper headerPosition="top" #stepper>
+    
+        <mat-step [stepControl]="firstFormGroup" class="actions-dialog">
+          <ng-template matStepLabel>Roles</ng-template> 
+          <app-itens></app-itens>
+        </mat-step>
+          
+        <mat-step [stepControl]="secondFormGroup">
+          <ng-template matStepLabel>Related</ng-template>
+          <app-approvals></app-approvals>
+        </mat-step>
+      
+        <mat-step>
+           <ng-template matStepLabel>Done</ng-template>
+           <app-done></app-done>
+        </mat-step>
+        
+      </mat-stepper>
+
+      <mat-selection-list #r [multiple]="false">
+        <mat-list-option *ngFor="let role of roles" [value]="r">
+          {{role.name}}
+        </mat-list-option>
+      </mat-selection-list>
+
+
+
+
+
+
+</div>

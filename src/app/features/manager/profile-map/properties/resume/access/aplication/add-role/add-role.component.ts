@@ -1,5 +1,5 @@
 import { SelectionModel } from '@angular/cdk/collections';
-import { Component, Inject } from '@angular/core';
+import { Component, Inject, OnInit } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
 import { AddRoleService } from './add-role.service';
 import { MAT_DIALOG_DATA } from '@angular/material/dialog';
@@ -14,7 +14,7 @@ import { Item } from 'src/app/core/entities/access/Item';
 
 
 
-export class AddRoleComponent{
+export class AddRoleComponent implements OnInit {
 
   private _roles: Role[] = [];
   private checking = new SelectionModel<Role>(true,[]);
@@ -25,12 +25,18 @@ export class AddRoleComponent{
 
   
   constructor(@Inject(MAT_DIALOG_DATA) private item: Item, private service: AddRoleService) {
+
+  }
+
+
+  ngOnInit(): void {
     /*
     this.service.getRoles(item).subscribe((roles: Role[]) => {
       this.roles = new MatTableDataSource(roles);
     });
     */
   }
+
 
   putToggled(role: Role){
     role.status = 0;
