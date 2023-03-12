@@ -5,7 +5,7 @@
     <cdk-virtual-scroll-viewport itemSize="50" class="scroll-viewport"> 
       <mat-step [stepControl]="firstFormGroup" class="actions-dialog">
         <ng-template matStepLabel>General</ng-template> 
-        <mat-card>
+        <mat-card [ngClass]="{'pending-card':item.status < 2,'approved-card':item.status == 2}">
           <mat-card-header>
             {{ item.application }} - {{ item.name }}
           </mat-card-header>
@@ -17,11 +17,36 @@
           </mat-card-content>
         </mat-card>
 
-        <mat-selection-list #r [multiple]="false">
-          <mat-list-option *ngFor="let role of item.roles" [value]="r">
-            {{role.name}}
-          </mat-list-option>
-        </mat-selection-list>
+        <mat-list role="list">
+          <mat-list-item role="listitem" *ngFor="let role of item.roles" >
+            <mat-card [ngClass]="{'pending-card':role.status < 2,'approved-card':role.status == 2}">
+              <mat-card-content>
+                <span>
+                  <button mat-icon-button [matMenuTriggerFor]="menu">
+                    <mat-icon color="primary">more_vert</mat-icon>
+                  </button>
+                  <mat-menu #menu="matMenu">
+                    <button mat-menu-item (click)="viewRole(role)">
+                      <mat-icon color="primary">visibility</mat-icon>
+                      <span>View</span>
+                    </button>
+                    <button mat-menu-item (click)="viewRole(role)">
+                      <mat-icon color="primary">edit</mat-icon>
+                      <span>Edit</span>
+                    </button>
+                    <button mat-menu-item>
+                      <mat-icon color="warn">clear</mat-icon>
+                      <span>Remove</span>
+                    </button>
+                  </mat-menu> 
+                </span>
+
+                {{role.name}}
+              </mat-card-content>
+            </mat-card>
+          </mat-list-item>
+        </mat-list>
+      
       </mat-step>
     </cdk-virtual-scroll-viewport> 
     

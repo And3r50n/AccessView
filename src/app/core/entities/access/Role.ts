@@ -1,7 +1,13 @@
 
 export interface Role {
     id: number;
-    roleId: number;
+    name: String;
+    status: number;
+}
+
+
+export interface RoleProperties {
+    id: number;
     name: String;
     attribute: String;
     created: Date;

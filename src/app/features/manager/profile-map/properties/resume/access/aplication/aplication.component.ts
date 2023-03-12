@@ -74,12 +74,9 @@ export class AplicationComponent implements OnInit {
     });
   }
 
-
   public viewThisItem(item: Item){
     const dialog = this.dialog.open(PropertiesItemComponent, {data: item.id});
   }
-
-
 
   public showAllActions() {
     const dialog = this.dialog.open(ActionsComponent, {data:this.accesses});
@@ -89,7 +86,6 @@ export class AplicationComponent implements OnInit {
     const count = this.accesses.filter(access => access.id === 0).length;
     return count > 0 ? count <= 9 ? `filter_${count}` : 'filter_9_plus' :'filter_none';
   }
-
 
   private buildRoles(roles: Role[]){
 

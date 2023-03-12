@@ -1,7 +1,5 @@
 
-table {
-  width: 100%;
-}
+
   
 mat-form-field {
   width: 100%;
@@ -18,10 +16,6 @@ mat-form-field {
   width: 100%;
 }
 
-td.mat-column-select{
-  width: 50px;
-}
-
 .display-bottom{
   float: right;
 }
@@ -32,4 +26,30 @@ td.mat-column-select{
 
 mat-card{
   border-radius: 0;
+  margin-top: 5px;
+}
+
+.mdc-list-item {
+  padding-left: 0;
+  padding-right: 0;
+}
+
+mat-divider{
+  padding-top: 10px;
+}
+
+.pending-card{
+  border-left: 5px solid #fd7400;
+}
+
+.approved-card{
+  border-left: 5px solid #00796B;
+}
+
+.forwarded-card{
+  border-left: 5px solid #d8c200;
+}
+
+.reproved-card{
+  border-left: 5px solid #d83d00;
 }

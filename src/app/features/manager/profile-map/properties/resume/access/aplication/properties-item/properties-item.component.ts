@@ -1,7 +1,8 @@
+
 import { Component, Inject, OnInit } from '@angular/core';
 import { UntypedFormBuilder, Validators } from '@angular/forms';
 import { MAT_DIALOG_DATA } from '@angular/material/dialog';
-import { Item, ItemProperties } from 'src/app/core/entities/access/Item';
+import { ItemProperties } from 'src/app/core/entities/access/Item';
 import { Role } from 'src/app/core/entities/access/Role';
 import { PropertiesItemService } from './properties-item.service';
 
@@ -10,10 +11,8 @@ import { PropertiesItemService } from './properties-item.service';
   templateUrl: './properties-item.component.html',
   styleUrls: ['./properties-item.component.scss']
 })
+
 export class PropertiesItemComponent implements OnInit {
-
-
-  public item!: ItemProperties;
 
   constructor(@Inject(MAT_DIALOG_DATA) private id: number, private formBuilder: UntypedFormBuilder, private service: PropertiesItemService ){
 
@@ -23,6 +22,10 @@ export class PropertiesItemComponent implements OnInit {
     this.service.getRoles(this.id).subscribe((item: ItemProperties) => this.item = item);
   }
 
+  viewRole(role: Role):void{
+    console.log(role);
+  }
+
   firstFormGroup = this.formBuilder.group({
     firstCtrl: ['', Validators.required],
   });
@@ -30,6 +33,17 @@ export class PropertiesItemComponent implements OnInit {
   secondFormGroup = this.formBuilder.group({
     secondCtrl: ['', Validators.required],
   });
+
+
+  public item: ItemProperties = {
+    id: 0,
+    name: '',
+    application: '',
+    created: new Date(),
+    updated: new Date(),
+    status: 0,
+    roles: []
+  };
 
 
 }
