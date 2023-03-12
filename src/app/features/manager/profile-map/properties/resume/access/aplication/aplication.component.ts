@@ -76,7 +76,7 @@ export class AplicationComponent implements OnInit {
 
 
   public viewThisItem(item: Item){
-    const dialog = this.dialog.open(PropertiesItemComponent, {data: item});
+    const dialog = this.dialog.open(PropertiesItemComponent, {data: item.id});
   }
 
 
@@ -106,7 +106,6 @@ export class AplicationComponent implements OnInit {
 
   public item: Item = {
     id: 0,
-    itemId:0,
     name:'',
     status: 0,
   };
@@ -116,7 +115,6 @@ export class AplicationComponent implements OnInit {
     applicationId:0,
     name:'',
     itens:[],
-    accesses:[],
     status:0,
   };
 

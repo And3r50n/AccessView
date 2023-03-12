@@ -1,7 +1,7 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { UntypedFormBuilder, Validators } from '@angular/forms';
 import { MAT_DIALOG_DATA } from '@angular/material/dialog';
-import { Item } from 'src/app/core/entities/access/Item';
+import { Item, ItemProperties } from 'src/app/core/entities/access/Item';
 import { Role } from 'src/app/core/entities/access/Role';
 import { PropertiesItemService } from './properties-item.service';
 
@@ -13,14 +13,14 @@ import { PropertiesItemService } from './properties-item.service';
 export class PropertiesItemComponent implements OnInit {
 
 
-  public roles: Role[] = [];
+  public item!: ItemProperties;
 
-  constructor(@Inject(MAT_DIALOG_DATA) private item: Item, private formBuilder: UntypedFormBuilder, private service: PropertiesItemService ){
+  constructor(@Inject(MAT_DIALOG_DATA) private id: number, private formBuilder: UntypedFormBuilder, private service: PropertiesItemService ){
 
   }
 
   ngOnInit(): void {
-    this.service.getRoles(this.item.id).subscribe((roles: Role[]) => this.roles = roles);
+    this.service.getRoles(this.id).subscribe((item: ItemProperties) => this.item = item);
   }
 
   firstFormGroup = this.formBuilder.group({

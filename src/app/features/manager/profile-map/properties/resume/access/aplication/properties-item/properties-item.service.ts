@@ -1,14 +1,15 @@
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { Role } from 'src/app/core/entities/access/Role';
+import { ItemProperties } from 'src/app/core/entities/access/Item';
+
 
 @Injectable({
   providedIn: 'root'
 })
 export class PropertiesItemService {
   
-  private readonly API = 'main/role' 
+  private readonly API = 'api/manager/profile/access/item/properties/'
 
 
   constructor(private http: HttpClient){ 
@@ -17,9 +18,7 @@ export class PropertiesItemService {
 
   public getRoles(id: number): any{
     let params = new HttpParams();
-    params = params.append('id', id);
-    return this.http.get<Observable<Role[]>>(this.API,{params});
+    return this.http.get<Observable<ItemProperties>>(`${this.API}${id}`);
   }
-
 
 }

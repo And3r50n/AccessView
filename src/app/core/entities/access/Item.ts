@@ -2,7 +2,18 @@ import { Role } from "./Role";
 
 export interface Item {
     id: number;
-    itemId: number;
     name: String;
-    status: number;    
+    status: number;
+}
+
+
+
+export interface ItemProperties {
+    id: number;
+    name: String;
+    application: String;
+    created: Date;
+    updated: Date;
+    status: number;
+    roles: Role[];
 }

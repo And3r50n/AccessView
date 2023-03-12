@@ -1,6 +1,10 @@
 
 export interface Role {
     id: number;
+    roleId: number;
     name: String;
-    status: number;    
+    attribute: String;
+    created: Date;
+    updated: Date;
+    status: number;
 }

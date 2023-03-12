@@ -25,3 +25,11 @@ td.mat-column-select{
 .display-bottom{
   float: right;
 }
+
+:host ::ng-deep .mat-horizontal-content-container {
+  padding:24px 0px !important;
+}
+
+mat-card{
+  border-radius: 0;
+}

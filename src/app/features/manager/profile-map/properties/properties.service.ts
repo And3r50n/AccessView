@@ -12,6 +12,8 @@ export class PropertiesService {
 
 
   private readonly API = 'api/manager/profile/'
+
+  
   private profile = new Subject<Profile>();
 
 
