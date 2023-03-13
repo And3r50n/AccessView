@@ -1,10 +1,11 @@
 
 import { Component, Inject, OnInit } from '@angular/core';
 import { UntypedFormBuilder, Validators } from '@angular/forms';
-import { MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { MatDialog, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { ItemProperties } from 'src/app/core/entities/access/Item';
 import { Role } from 'src/app/core/entities/access/Role';
 import { PropertiesItemService } from './properties-item.service';
+import { RoleDetailsComponent } from './role-details/role-details.component';
 
 @Component({
   selector: 'app-properties-item',
@@ -14,8 +15,11 @@ import { PropertiesItemService } from './properties-item.service';
 
 export class PropertiesItemComponent implements OnInit {
 
-  constructor(@Inject(MAT_DIALOG_DATA) private id: number, private formBuilder: UntypedFormBuilder, private service: PropertiesItemService ){
-
+  constructor(
+    @Inject(MAT_DIALOG_DATA) private id: number,
+    private formBuilder: UntypedFormBuilder,
+    private service: PropertiesItemService,
+    private dialog: MatDialog){
   }
 
   ngOnInit(): void {
@@ -23,7 +27,7 @@ export class PropertiesItemComponent implements OnInit {
   }
 
   viewRole(role: Role):void{
-    console.log(role);
+    const dialog = this.dialog.open(RoleDetailsComponent, {data: role});
   }
 
   firstFormGroup = this.formBuilder.group({

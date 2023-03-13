@@ -79,19 +79,19 @@
                   </button>
                   <mat-menu #menu="matMenu">
                     <button mat-menu-item (click)="viewThisItem(item)">
-                      <mat-icon color="primary">subdirectory_arrow_right</mat-icon>
-                      <span>View this Item</span>
+                      <mat-icon color="primary">visibility</mat-icon>
+                      <span>View</span> 
                     </button>
                     <button mat-menu-item (click)="addRole(item)">
-                      <mat-icon>transform</mat-icon>
-                      <span>Change this Item</span>
+                      <mat-icon>edit</mat-icon>
+                      <span>Edit</span>
                     </button>
                     <button mat-menu-item>
                       <mat-icon color="warn">clear</mat-icon>
-                      <span>Remove this Item</span>
+                      <span>Remove</span>
                     </button>
                   </mat-menu>
-                  {{item.name}}
+                  <span class="itens" (click)="viewThisItem(item)">{{item.name}}</span> 
                 </span> 
               </mat-list-item>
           </mat-list>
