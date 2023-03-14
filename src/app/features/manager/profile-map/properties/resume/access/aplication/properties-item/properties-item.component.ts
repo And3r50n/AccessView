@@ -17,27 +17,17 @@ export class PropertiesItemComponent implements OnInit {
 
   constructor(
     @Inject(MAT_DIALOG_DATA) private id: number,
-    private formBuilder: UntypedFormBuilder,
     private service: PropertiesItemService,
     private dialog: MatDialog){
   }
 
   ngOnInit(): void {
-    this.service.getRoles(this.id).subscribe((item: ItemProperties) => this.item = item);
+    this.service.getPropertiesItem(this.id).subscribe((item: ItemProperties) => this.item = item);
   }
 
   viewRole(role: Role):void{
     const dialog = this.dialog.open(RoleDetailsComponent, {data: role});
   }
-
-  firstFormGroup = this.formBuilder.group({
-    firstCtrl: ['', Validators.required],
-  });
-
-  secondFormGroup = this.formBuilder.group({
-    secondCtrl: ['', Validators.required],
-  });
-
 
   public item: ItemProperties = {
     id: 0,

@@ -10,7 +10,7 @@ import { AccessService } from '../../access.service';
 })
 export class AddApplicationService {
 
-  private readonly API = '/api/application/all'
+  private readonly API = '/api/manager/profile/application/'
 
   constructor(private http: HttpClient, private service: AccessService) {
   }

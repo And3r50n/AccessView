@@ -11,7 +11,7 @@ import { AccessService } from '../../access.service';
 })
 export class AddSubApplicationService {
 
-  private readonly API = 'main/application/sub'
+  private readonly API = 'api/manager/profile/application/item/'
 
   constructor(private http: HttpClient, private service: AccessService) {
 
@@ -19,7 +19,7 @@ export class AddSubApplicationService {
 
   public getItens(access: Access): any{
     let params = new HttpParams();
-    params = params.append('id', access.id);
+    params = params.append('id', access.applicationId);
     params = params.append('excepts', this.getSubIdExcepts(access));
     return this.http.get<Observable<Item[]>>(this.API,{params});
   }

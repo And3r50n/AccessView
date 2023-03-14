@@ -1,22 +1,21 @@
-<div class="application-dialog">
+<mat-tab-group class="application-dialog">
+  <cdk-virtual-scroll-viewport itemSize="50" class="scroll-viewport">
+  <mat-tab label="Roles">
 
-  <mat-stepper headerPosition="top" #stepper>
-    
-    <cdk-virtual-scroll-viewport itemSize="50" class="scroll-viewport"> 
-      <mat-step [stepControl]="firstFormGroup" class="actions-dialog">
-        <ng-template matStepLabel>General</ng-template> 
-        <mat-card [ngClass]="{'pending-card':item.status < 2,'approved-card':item.status == 2}">
-          <mat-card-header>
-            {{ item.application }} - {{ item.name }}
-          </mat-card-header>
-          <mat-card-content>
-            <mat-divider></mat-divider>
-            <div>Created: {{ item.created | date: 'dd/MM/yyyy' }}</div>
-            <div>Last Update: {{ item.updated | date: 'dd/MM/yyyy' }}</div>
-            <div>Status: {{ item.status }}</div>
-          </mat-card-content>
-        </mat-card>
-
+      <ng-template matStepLabel>General</ng-template>
+      <mat-card [ngClass]="{'pending-card':item.status < 2,'approved-card':item.status == 2}">
+        <mat-card-header>
+          {{ item.application }} - {{ item.name }}
+        </mat-card-header>
+        <mat-card-content>
+          <mat-divider></mat-divider>
+          <div>Created: {{ item.created | date: 'dd/MM/yyyy' }}</div>
+          <div>Last Update: {{ item.updated | date: 'dd/MM/yyyy' }}</div>
+          <div>Status: {{ item.status }}</div>
+        </mat-card-content>
+      </mat-card>
+      
+      
         <mat-list role="list">
           <mat-list-item role="listitem" *ngFor="let role of item.roles" >
             <mat-card [ngClass]="{'pending-card':role.status < 2,'approved-card':role.status == 2}">
@@ -40,24 +39,16 @@
                     </button>
                   </mat-menu> 
                 </span>
-
                 {{role.name}}
               </mat-card-content>
             </mat-card>
           </mat-list-item>
-        </mat-list>
-      
-      </mat-step>
-    </cdk-virtual-scroll-viewport> 
-    
-    <mat-step [stepControl]="secondFormGroup">
-      <ng-template matStepLabel>Approvals</ng-template>
-    </mat-step>
-  
-    <mat-step>
-        <ng-template matStepLabel>Done</ng-template>
-    </mat-step>
-    
-  </mat-stepper>
+        </mat-list>      
 
-</div>
+
+  </mat-tab>
+  <mat-tab label="Second">
+    Approvals
+  </mat-tab>
+</cdk-virtual-scroll-viewport>
+</mat-tab-group>
