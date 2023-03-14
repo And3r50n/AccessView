@@ -16,7 +16,7 @@ export class AddItemComponent implements OnInit {
 
   public itens: Item[] = [];
   public dataSource = new MatTableDataSource(this.itens);
-  public displayedColumns: string[] = ['select','name'];
+  public displayedColumns: string[] = ['select','name','environment'];
   private checking = new SelectionModel<any>(true,[]);
   public checked = new SelectionModel<any>(true,[]);
 

@@ -32,6 +32,7 @@ export class PropertiesItemComponent implements OnInit {
   public item: ItemProperties = {
     id: 0,
     name: '',
+    environment: '',
     application: '',
     created: new Date(),
     updated: new Date(),

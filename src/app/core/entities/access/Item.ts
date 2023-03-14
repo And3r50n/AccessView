@@ -11,6 +11,7 @@ export interface Item {
 export interface ItemProperties {
     id: number;
     name: String;
+    environment: String;
     application: String;
     created: Date;
     updated: Date;
