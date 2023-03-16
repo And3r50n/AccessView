@@ -1,54 +1,49 @@
-<mat-tab-group class="application-dialog">
-  <cdk-virtual-scroll-viewport itemSize="50" class="scroll-viewport">
-  <mat-tab label="Roles">
-
-      <ng-template matStepLabel>General</ng-template>
-      <mat-card [ngClass]="{'pending-card':item.status < 2,'approved-card':item.status == 2}">
-        <mat-card-header>
+<div class="application-dialog">
+<cdk-virtual-scroll-viewport itemSize="50" class="scroll-viewport">
+  <mat-accordion>
+    <mat-expansion-panel hideToggle>
+      <mat-expansion-panel-header>
+        <mat-panel-title>
           {{ item.application }} - {{ item.name }}
-        </mat-card-header>
+        </mat-panel-title>
+      </mat-expansion-panel-header>
+            <div>Created: {{ item.created | date: 'dd/MM/yyyy' }}</div>
+            <div>Last Update: {{ item.updated | date: 'dd/MM/yyyy' }}</div>
+            <div>Status: {{ item.status }}</div>
+    </mat-expansion-panel>
+  </mat-accordion>
+
+  <mat-toolbar>
+    <h3>Roles</h3>
+  </mat-toolbar>
+
+  <mat-list role="list">
+    <mat-list-item role="listitem" *ngFor="let role of item.roles" >
+      <mat-card [ngClass]="{'pending-card':role.status < 2,'approved-card':role.status == 2}">
         <mat-card-content>
-          <mat-divider></mat-divider>
-          <div>Created: {{ item.created | date: 'dd/MM/yyyy' }}</div>
-          <div>Last Update: {{ item.updated | date: 'dd/MM/yyyy' }}</div>
-          <div>Status: {{ item.status }}</div>
+          <span>
+            <button mat-icon-button [matMenuTriggerFor]="menu">
+              <mat-icon color="primary">more_vert</mat-icon>
+            </button>
+            <mat-menu #menu="matMenu">
+              <button mat-menu-item (click)="viewRole(role)">
+                <mat-icon color="primary">visibility</mat-icon>
+                <span>View</span>
+              </button>
+              <button mat-menu-item (click)="viewRole(role)">
+                <mat-icon color="primary">edit</mat-icon>
+                <span>Edit</span>
+              </button>
+              <button mat-menu-item>
+                <mat-icon color="warn">clear</mat-icon>
+                <span>Remove</span>
+              </button>
+            </mat-menu> 
+          </span>
+          <span class="text-item-enterpoint" (click)="viewRole(role)">{{role.name}}</span> 
         </mat-card-content>
       </mat-card>
-      
-      
-        <mat-list role="list">
-          <mat-list-item role="listitem" *ngFor="let role of item.roles" >
-            <mat-card [ngClass]="{'pending-card':role.status < 2,'approved-card':role.status == 2}">
-              <mat-card-content>
-                <span>
-                  <button mat-icon-button [matMenuTriggerFor]="menu">
-                    <mat-icon color="primary">more_vert</mat-icon>
-                  </button>
-                  <mat-menu #menu="matMenu">
-                    <button mat-menu-item (click)="viewRole(role)">
-                      <mat-icon color="primary">visibility</mat-icon>
-                      <span>View</span>
-                    </button>
-                    <button mat-menu-item (click)="viewRole(role)">
-                      <mat-icon color="primary">edit</mat-icon>
-                      <span>Edit</span>
-                    </button>
-                    <button mat-menu-item>
-                      <mat-icon color="warn">clear</mat-icon>
-                      <span>Remove</span>
-                    </button>
-                  </mat-menu> 
-                </span>
-                {{role.name}}
-              </mat-card-content>
-            </mat-card>
-          </mat-list-item>
-        </mat-list>      
-
-
-  </mat-tab>
-  <mat-tab label="Second">
-    Approvals
-  </mat-tab>
+    </mat-list-item>
+  </mat-list>      
 </cdk-virtual-scroll-viewport>
-</mat-tab-group>
+</div>

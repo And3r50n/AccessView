@@ -43,7 +43,7 @@ import { DepartmentComponent } from './properties/resume/department/department.c
 import { MatChipsModule } from '@angular/material/chips';
 import { PropertiesItemComponent } from './properties/resume/access/aplication/properties-item/properties-item.component';
 import { RoleDetailsComponent } from './properties/resume/access/aplication/properties-item/role-details/role-details.component';
-
+import { MatExpansionModule } from '@angular/material/expansion';
 
 @NgModule({
   declarations: [
@@ -92,7 +92,8 @@ import { RoleDetailsComponent } from './properties/resume/access/aplication/prop
     MatMenuModule,
     MatStepperModule,
     MatDividerModule,
-    MatChipsModule
+    MatChipsModule,
+    MatExpansionModule
   ],
   providers: [
     //Colocar aqui os serviços que precisar utilizar a mesma instância em toda a aplicação. * Padrão sigleton
