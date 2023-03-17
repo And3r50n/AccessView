@@ -1,6 +1,11 @@
 
+/* flutuar icone playlist_add para a direita do toolbal*/
+.spacer{
+  display: inline;
+  flex: 1 1 auto;
+}
 
-  
+
 mat-form-field {
   width: 100%;
 }
@@ -42,18 +47,4 @@ mat-divider{
   padding-top: 10px;
 }
 
-.pending-card{
-  border-left: 5px solid #fd7400;
-}
 
-.approved-card{
-  border-left: 5px solid #00796B;
-}
-
-.forwarded-card{
-  border-left: 5px solid #d8c200;
-}
-
-.reproved-card{
-  border-left: 5px solid #d83d00;
-}

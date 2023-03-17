@@ -44,6 +44,7 @@ import { MatChipsModule } from '@angular/material/chips';
 import { PropertiesItemComponent } from './properties/resume/access/aplication/properties-item/properties-item.component';
 import { RoleDetailsComponent } from './properties/resume/access/aplication/properties-item/role-details/role-details.component';
 import { MatExpansionModule } from '@angular/material/expansion';
+import { RoleAddComponent } from './properties/resume/access/aplication/properties-item/role-add/role-add.component';
 
 @NgModule({
   declarations: [
@@ -64,7 +65,8 @@ import { MatExpansionModule } from '@angular/material/expansion';
     RolesComponent,
     DepartmentComponent,
     PropertiesItemComponent,
-    RoleDetailsComponent
+    RoleDetailsComponent,
+    RoleAddComponent
   ],
   imports: [
     CommonModule,

@@ -68,3 +68,26 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
   color: #00796B;
   text-decoration: underline;
 }
+
+/* Para aplicar bordas em cards ou containers que apresentam status de aprovação */
+.pending-card{
+  border-left: 5px solid #fd7400;
+}
+
+.approved-card{
+  border-left: 5px solid #00796B;
+}
+
+.forwarded-card{
+  border-left: 5px solid #d8c200;
+}
+
+.reproved-card{
+  border-left: 5px solid #d83d00;
+}
+
+/* Configurações básicas de tabelas*/
+table {
+  width: 100%;
+  box-shadow:none;
+}

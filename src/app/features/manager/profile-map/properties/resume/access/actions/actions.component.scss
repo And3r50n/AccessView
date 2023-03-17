@@ -23,28 +23,6 @@ mat-icon-button{
 }
 
 
-.pending-card{
-  border-left: 5px solid #fd7400;
-}
-
-.approved-card{
-  border-left: 5px solid #00796B;
-}
-
-.forwarded-card{
-  border-left: 5px solid #d8c200;
-}
-
-.reproved-card{
-  border-left: 5px solid #d83d00;
-}
-
-
-table {
-  width: 100%;
-  box-shadow:none;
-}
-
 tr.mat-row:hover {
   background: whitesmoke;
 }

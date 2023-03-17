@@ -1,7 +1,8 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { Role, RoleProperties } from 'src/app/core/entities/access/Role';
-import { RoleDetailsService } from './role-details.service';
+import { PropertiesItemService } from '../properties-item.service';
+
 
 @Component({
   selector: 'app-role-details',
@@ -21,12 +22,11 @@ export class RoleDetailsComponent  implements OnInit {
     status: 0
   };
 
-  constructor(@Inject(MAT_DIALOG_DATA) public role: Role, private service: RoleDetailsService){
-  }
+  constructor(@Inject(MAT_DIALOG_DATA) public role: Role, private service: PropertiesItemService){}
 
 
   ngOnInit(): void {
-    this.service.getDetails(this.role.id).subscribe((properties: RoleProperties) => this.properties = properties);
+    this.service.getRoleProperties(this.role.id).subscribe((properties: RoleProperties) => this.properties = properties);
   }
 
 }

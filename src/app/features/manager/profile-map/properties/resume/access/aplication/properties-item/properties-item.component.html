@@ -4,7 +4,7 @@
     <mat-expansion-panel hideToggle>
       <mat-expansion-panel-header>
         <mat-panel-title>
-          {{ item.application }} - {{ item.name }}
+          <div>{{ item.application }} - {{ item.name }}</div>
         </mat-panel-title>
       </mat-expansion-panel-header>
             <div>Created: {{ item.created | date: 'dd/MM/yyyy' }}</div>
@@ -14,7 +14,11 @@
   </mat-accordion>
 
   <mat-toolbar>
-    <h3>Roles</h3>
+    <mat-label style="color: teal">Roles</mat-label>
+    <span class="spacer"></span>
+    <button matSuffix mat-icon-button (click)="showAddRole(item)">
+      <mat-icon color="primary">playlist_add</mat-icon>
+    </button>
   </mat-toolbar>
 
   <mat-list role="list">
@@ -26,11 +30,11 @@
               <mat-icon color="primary">more_vert</mat-icon>
             </button>
             <mat-menu #menu="matMenu">
-              <button mat-menu-item (click)="viewRole(role)">
+              <button mat-menu-item (click)="showRoleProperties(role)">
                 <mat-icon color="primary">visibility</mat-icon>
                 <span>View</span>
               </button>
-              <button mat-menu-item (click)="viewRole(role)">
+              <button mat-menu-item (click)="showRoleProperties(role)">
                 <mat-icon color="primary">edit</mat-icon>
                 <span>Edit</span>
               </button>
@@ -40,7 +44,7 @@
               </button>
             </mat-menu> 
           </span>
-          <span class="text-item-enterpoint" (click)="viewRole(role)">{{role.name}}</span> 
+          <span class="text-item-enterpoint" (click)="showRoleProperties(role)">{{role.name}}</span> 
         </mat-card-content>
       </mat-card>
     </mat-list-item>
