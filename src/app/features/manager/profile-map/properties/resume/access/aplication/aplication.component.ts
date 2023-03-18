@@ -53,7 +53,7 @@ export class AplicationComponent implements OnInit {
   public addApplication() {  
     const dialog = this.dialog.open(AddApplicationComponent, {data:this.accesses});
     dialog.afterClosed().subscribe(result => {
-      this.builderAccesses(dialog.componentInstance.checked.selected);
+      this.builderAccesses(dialog.componentInstance.checking.selected);
       this.service.setAccesses(this.accesses);
       this.table.renderRows();
     });

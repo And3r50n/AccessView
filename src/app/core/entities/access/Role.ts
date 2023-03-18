@@ -2,6 +2,7 @@
 export interface Role {
     id: number;
     name: String;
+    attribute: String;
     status: number;
 }
 

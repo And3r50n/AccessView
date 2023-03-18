@@ -1,7 +1,7 @@
 
 import { Component, Inject, OnInit } from '@angular/core';
 import { MatDialog, MAT_DIALOG_DATA } from '@angular/material/dialog';
-import { Item, ItemProperties } from 'src/app/core/entities/access/Item';
+import { ItemProperties } from 'src/app/core/entities/access/Item';
 import { Role } from 'src/app/core/entities/access/Role';
 import { PropertiesItemService } from './properties-item.service';
 import { RoleAddComponent } from './role-add/role-add.component';
@@ -31,6 +31,9 @@ export class PropertiesItemComponent implements OnInit {
 
   showAddRole(item: ItemProperties):void{
     const dialog = this.dialog.open(RoleAddComponent, {data: item});
+    dialog.afterClosed().subscribe(result => {
+      this.setNewRoles(dialog.componentInstance.checking.selected);
+    });
   }
 
   public item: ItemProperties = {
@@ -43,6 +46,13 @@ export class PropertiesItemComponent implements OnInit {
     status: 0,
     roles: []
   };
+
+
+  private setNewRoles(roles: Role[]){
+    roles.map(role => this.item.roles.push(role));
+  }
+
+
 
 
 }
