@@ -57,8 +57,8 @@ export class PropertiesItemComponent implements OnInit {
     roles.map(role => this.item.roles.push(role));
   }
 
-  public done(){
-
+  public save(){
+    this.service.addRoles(this.item).subscribe();
   }
 
   public cancel(){

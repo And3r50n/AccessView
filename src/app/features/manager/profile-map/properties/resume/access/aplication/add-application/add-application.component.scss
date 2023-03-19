@@ -19,6 +19,8 @@ td.mat-column-select{
 }
 
 .menu-footer{
-  float: right;
+  position: absolute;
+  bottom: 0;
+  right: 0;
   display: inline-flex;
 }
