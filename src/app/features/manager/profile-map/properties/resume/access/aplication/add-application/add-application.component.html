@@ -40,12 +40,13 @@
     </section>
   </cdk-virtual-scroll-viewport>
 
-  <div mat-dialog-actions class='display-bottom'>
-    <button mat-button mat-dialog-close color="primary"(click)="done()">Done</button>
-  </div>
-
-  <div mat-dialog-actions class='display-bottom'>
-    <button mat-button mat-dialog-close color="warn"(click)="cancel()">Cancel</button>
+  <div class="menu-footer">
+    <div mat-dialog-actions>
+      <button mat-button mat-dialog-close color="warn"(click)="cancel()">Cancel</button>
+    </div>
+    <div mat-dialog-actions>
+      <button mat-button mat-dialog-close color="primary"(click)="done()">Done</button>
+    </div>
   </div>
   
 </div>

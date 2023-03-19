@@ -31,7 +31,6 @@ import { ApprovalsComponent } from './properties/resume/access/actions/approvals
 import { ItensComponent } from './properties/resume/access/actions/itens/itens.component';
 import { AddApplicationComponent } from './properties/resume/access/aplication/add-application/add-application.component';
 import { AplicationComponent } from './properties/resume/access/aplication/aplication.component';
-import { AddRoleComponent } from './properties/resume/access/aplication/add-role/add-role.component';
 import { PropertiesComponent } from './properties/properties.component';
 import { ResumeComponent } from './properties/resume/resume.component';
 import { ApproversComponent } from './properties/resume/access/actions/approvals/approvers/approvers.component';
@@ -52,7 +51,6 @@ import { RoleAddComponent } from './properties/resume/access/aplication/properti
     ResumeComponent,
     AccessComponent,
     AddApplicationComponent,
-    AddRoleComponent,
     ActionsComponent,
     ProfileMapComponent,
     AplicationComponent,

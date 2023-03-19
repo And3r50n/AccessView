@@ -7,10 +7,9 @@ import { ActionsComponent } from '../actions/actions.component';
 import { AplicationService } from './aplication.service';
 import { animate, state, style, transition, trigger } from '@angular/animations';
 import { AddItemComponent } from './add-item/add-item.component';
-import { AddRoleComponent } from './add-role/add-role.component';
-import { Role } from 'src/app/core/entities/access/Role';
 import { Item } from 'src/app/core/entities/access/Item';
 import { PropertiesItemComponent } from './properties-item/properties-item.component';
+
 
 
 @Component({
@@ -66,13 +65,6 @@ export class AplicationComponent implements OnInit {
     });
   }
 
-  public addRole(role: Role) {
-    const dialog = this.dialog.open(AddRoleComponent, {data: role});
-    dialog.afterClosed().subscribe(result => {
-      this.buildRoles(dialog.componentInstance.checked.selected);
-      this.service.setItem(this.item);
-    });
-  }
 
   public viewThisItem(item: Item){
     const dialog = this.dialog.open(PropertiesItemComponent, {data: item.id});
@@ -87,9 +79,6 @@ export class AplicationComponent implements OnInit {
     return count > 0 ? count <= 9 ? `filter_${count}` : 'filter_9_plus' :'filter_none';
   }
 
-  private buildRoles(roles: Role[]){
-
-  }
 
   private builderItens(itens: Item[]){
 

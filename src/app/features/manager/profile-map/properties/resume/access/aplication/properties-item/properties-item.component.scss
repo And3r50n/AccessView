@@ -5,7 +5,6 @@
   flex: 1 1 auto;
 }
 
-
 mat-form-field {
   width: 100%;
 }
@@ -15,36 +14,32 @@ mat-form-field {
   height:800px;
 }
 
+.mat-mdc-table {
+  width: 100%;
+  max-height: 650px;
+  overflow: auto;
+}
+
 .scroll-viewport{
   margin-bottom:10px;
   height: 80%;
   width: 100%;
 }
 
-mat-list-item{
-  margin-top: 5px;
-}
-
-.display-bottom{
+.menu-footer{
   float: right;
+  display: inline-flex;
 }
 
 :host ::ng-deep .mat-horizontal-content-container {
   padding:24px 0px !important;
 }
 
-mat-card{
-  border-radius: 0;
-  margin-top: 5px;
+
+mat-expansion-panel div{
+  padding-top: 5px;
 }
 
-mat-list-item {
-  padding-left: 0;
-  padding-right: 0;
+.mat-column-id{
+  max-width: 80px;
 }
-
-mat-divider{
-  padding-top: 10px;
-}
-
-

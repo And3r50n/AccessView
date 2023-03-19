@@ -1,8 +1,8 @@
 <div class="application-dialog">
-<cdk-virtual-scroll-viewport itemSize="50" class="scroll-viewport">
+
   <mat-accordion>
     <mat-expansion-panel hideToggle>
-      <mat-expansion-panel-header>
+      <mat-expansion-panel-header color="primary">
         <mat-panel-title>
           <div>{{ item.application }} - {{ item.name }}</div>
         </mat-panel-title>
@@ -21,33 +21,40 @@
     </button>
   </mat-toolbar>
 
-  <mat-list role="list">
-    <mat-list-item role="listitem" *ngFor="let role of item.roles" >
-      <mat-card [ngClass]="{'pending-card':role.status < 2,'approved-card':role.status == 2}">
-        <mat-card-content>
-          <span>
-            <button mat-icon-button [matMenuTriggerFor]="menu">
-              <mat-icon color="primary">more_vert</mat-icon>
-            </button>
-            <mat-menu #menu="matMenu">
-              <button mat-menu-item (click)="showRoleProperties(role)">
-                <mat-icon color="primary">visibility</mat-icon>
-                <span>View</span>
-              </button>
-              <button mat-menu-item (click)="showRoleProperties(role)">
-                <mat-icon color="primary">edit</mat-icon>
-                <span>Edit</span>
-              </button>
-              <button mat-menu-item>
-                <mat-icon color="warn">clear</mat-icon>
-                <span>Remove</span>
-              </button>
-            </mat-menu> 
-          </span>
+  <cdk-virtual-scroll-viewport itemSize="50" class="scroll-viewport">
+    <mat-table [dataSource]="item.roles" class="mat-elevation-z8">
+      <!-- ID Column -->
+      <ng-container matColumnDef="id">
+        <mat-header-cell *matHeaderCellDef> ID </mat-header-cell>
+        <mat-cell *matCellDef="let role"> {{role.id}} </mat-cell>
+      </ng-container>
+    
+      <!-- Name Column -->
+      <ng-container matColumnDef="name">
+        <mat-header-cell *matHeaderCellDef> Role </mat-header-cell>
+        <mat-cell *matCellDef="let role">
           <span class="text-item-enterpoint" (click)="showRoleProperties(role)">{{role.name}}</span> 
-        </mat-card-content>
-      </mat-card>
-    </mat-list-item>
-  </mat-list>      
-</cdk-virtual-scroll-viewport>
+        </mat-cell>
+      </ng-container>
+
+      <!-- Name Column -->
+      <ng-container matColumnDef="status">
+        <mat-header-cell *matHeaderCellDef> Status </mat-header-cell>
+        <mat-cell *matCellDef="let role"> {{role.status}} </mat-cell>
+      </ng-container>
+
+      <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+      <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+    </mat-table>   
+  </cdk-virtual-scroll-viewport>
+
+<div class="menu-footer">
+  <div mat-dialog-actions>
+    <button mat-button mat-dialog-close color="warn"(click)="cancel()">Cancel</button>
+  </div>
+  <div mat-dialog-actions>
+    <button mat-button mat-dialog-close color="primary"(click)="done()">Done</button>
+  </div>
+</div>
+
 </div>

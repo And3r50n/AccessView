@@ -1,6 +1,7 @@
 
-import { Component, Inject, OnInit } from '@angular/core';
+import { Component, Inject, OnInit, ViewChild } from '@angular/core';
 import { MatDialog, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { MatTable } from '@angular/material/table';
 import { ItemProperties } from 'src/app/core/entities/access/Item';
 import { Role } from 'src/app/core/entities/access/Role';
 import { PropertiesItemService } from './properties-item.service';
@@ -14,6 +15,9 @@ import { RoleDetailsComponent } from './role-details/role-details.component';
 })
 
 export class PropertiesItemComponent implements OnInit {
+
+  displayedColumns: string[] = ['id', 'name', 'status'];
+  @ViewChild(MatTable) table!: MatTable<Role>;
 
   constructor(
     @Inject(MAT_DIALOG_DATA) private id: number,
@@ -33,6 +37,7 @@ export class PropertiesItemComponent implements OnInit {
     const dialog = this.dialog.open(RoleAddComponent, {data: item});
     dialog.afterClosed().subscribe(result => {
       this.setNewRoles(dialog.componentInstance.checking.selected);
+      this.table.renderRows();
     });
   }
 
@@ -50,6 +55,14 @@ export class PropertiesItemComponent implements OnInit {
 
   private setNewRoles(roles: Role[]){
     roles.map(role => this.item.roles.push(role));
+  }
+
+  public done(){
+
+  }
+
+  public cancel(){
+
   }
 
 

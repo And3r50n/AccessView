@@ -14,7 +14,7 @@ import { RoleAddService } from './role-add.service';
 
 
 export class RoleAddComponent {
-
+  
   public roles: Role[] = [];
   public dataSource = new MatTableDataSource(this.roles);
   public displayedColumns: string[] = ['select','name', 'attribute'];
@@ -33,6 +33,7 @@ export class RoleAddComponent {
 
 
   putToggled(role: Role){
+    role.status = 0;
     this.checking.toggle(role);
   }
 
