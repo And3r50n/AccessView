@@ -15,7 +15,7 @@ export class ProfileMapService {
   }
   
   findAllProfiles(){
-    return this.http.get<Profile[]>(this.API+"all");
+    return this.http.get<Profile[]>(this.API);
   }
 
 

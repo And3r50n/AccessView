@@ -12,8 +12,8 @@ export class RoleDetailsService {
 
   constructor(private http: HttpClient) { }
 
-  public getRoleProperties(id: number): any{
+  public getRoleProperties(code: number): any{
     let path = "properties/";
-    return this.http.get<Observable<RoleProperties>>(`${this.API}${path}${id}`);
+    return this.http.get<Observable<RoleProperties>>(`${this.API}${path}${code}`);
   }
 }

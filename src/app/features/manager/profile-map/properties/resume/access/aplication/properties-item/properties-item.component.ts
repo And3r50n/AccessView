@@ -54,14 +54,24 @@ export class PropertiesItemComponent implements OnInit {
 
 
   private setNewRoles(roles: Role[]){
-    roles.map(role => this.item.roles.push(role));
+    roles.forEach(role => this.item.roles.push(role));
   }
 
-  public save(){
-    this.service.addRoles(this.item).subscribe();
+  public onSubmit(){
+    this.service.save(this.item)
+    .subscribe(result => this.onSuccess(), error => this.onError());
   }
 
-  public cancel(){
+
+
+
+  onError(): void {
+  }
+
+  onSuccess(): void {
+  }
+
+  public onCancel(){
 
   }
 

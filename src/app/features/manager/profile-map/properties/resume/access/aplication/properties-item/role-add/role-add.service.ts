@@ -18,12 +18,12 @@ export class RoleAddService {
   public getRoles(item:ItemProperties): any{
     let params = new HttpParams();
     params = params.append('id', item.id);
-    params = params.append('excepts', this.getRoleID(item.roles));
+    params = params.append('excepts', this.getRoleCode(item.roles));
     return this.http.get<Observable<Role[]>>(this.API,{params});
   }
 
-  private getRoleID(roles: Role[]): string {
-    let args = roles.map(role => role.id);
+  private getRoleCode(roles: Role[]): string {
+    let args = roles.map(role => role.code);
     return args.join(',');
   }
 

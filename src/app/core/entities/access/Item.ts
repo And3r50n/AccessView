@@ -1,4 +1,4 @@
-import { Role } from "./Role";
+import { Role, RoleRequest } from "./Role";
 
 export interface Item {
     id: number;
@@ -18,3 +18,11 @@ export interface ItemProperties {
     status: number;
     roles: Role[];
 }
+
+
+export interface ItemRequest {
+    id: number;
+    status: number;
+    roles: RoleRequest[];
+}
+

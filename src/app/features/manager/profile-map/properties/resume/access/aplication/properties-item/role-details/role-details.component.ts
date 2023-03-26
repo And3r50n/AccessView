@@ -15,6 +15,7 @@ export class RoleDetailsComponent  implements OnInit {
   
   properties: RoleProperties = {
     id: 0,
+    code:0,
     name: '',
     attribute: '',
     created: new Date(),
@@ -26,7 +27,7 @@ export class RoleDetailsComponent  implements OnInit {
 
 
   ngOnInit(): void {
-    this.service.getRoleProperties(this.role.id).subscribe((properties: RoleProperties) => this.properties = properties);
+    this.service.getRoleProperties(this.role.code).subscribe((properties: RoleProperties) => this.properties = properties);
   }
 
 }

@@ -1,10 +1,9 @@
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { ItemProperties } from 'src/app/core/entities/access/Item';
+import { ItemProperties, ItemRequest } from 'src/app/core/entities/access/Item';
 import { catchError } from 'rxjs/operators';
 import { of } from 'rxjs';
-import { Role } from 'src/app/core/entities/access/Role';
 
 
 @Injectable({
@@ -19,9 +18,8 @@ export class PropertiesItemService {
 
 
   public getItemProperties(id: number): any{
-    const path = "properties/";
     let params = new HttpParams();
-    return this.http.get<Observable<ItemProperties>>(`${this.API}${path}${id}`,{params}).pipe(
+    return this.http.get<Observable<ItemProperties>>(`${this.API}${id}`,{params}).pipe(
       catchError(error => {
         console.error('Erro ao fazer solicitação: ', error);
         return of(null);
@@ -29,25 +27,37 @@ export class PropertiesItemService {
     );
   }
 
-  public addRoles(item:ItemProperties): any{
-    const path = "role/add";
-    let params = new HttpParams();
-    params = params.append('id', item.id);
-    params = params.append('roles', this.filterRoles(item.roles));
-    return this.http.get<Observable<Role[]>>(`${this.API}${path}`,{params}).pipe(
-      catchError(error => {
-        console.error('Erro ao fazer solicitação: ', error);
-        return of(null);
-      })
-    );
-  
-  
+
+  public save(record: ItemProperties){
+    return this.update(record);
   }
 
-  private filterRoles(roles: Role[]): string {
-    const ids: number[] = [];
-    roles.filter(role => role.status === 0).forEach(role => ids.push(role.id));
-    return ids.join(',');
+
+  private create(record: ItemProperties){
+    return this.http.post<ItemProperties>(this.API, record);
+  }
+
+
+  private update(item: ItemProperties){
+    let record = this.builderItemRequest(item);
+    return this.http.put<ItemProperties>(this.API, record);
+  }
+
+
+  private builderItemRequest(item: ItemProperties){
+
+    const roles = item.roles.map(role => ({ 
+      id: role.id,
+      code: role.code,
+      status: role.status
+    }));
+    
+    let record: ItemRequest = {
+      id: item.id,
+      status: item.status,
+      roles
+    }
+    return record
   }
 
 
