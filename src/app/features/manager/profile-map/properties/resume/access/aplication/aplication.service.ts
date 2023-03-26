@@ -27,6 +27,14 @@ export class AplicationService {
     this.service.setItem(item);
   }
 
+  public update(itens: Item[]): Item[]{
+    return itens;
+  }
+
+  public builderApplicationRequest(){
+
+  }
+
 
 
 }

@@ -52,7 +52,7 @@ export class AplicationComponent implements OnInit {
   public addApplication() {  
     const dialog = this.dialog.open(AddApplicationComponent, {data:this.accesses});
     dialog.afterClosed().subscribe(result => {
-      this.builderAccesses(dialog.componentInstance.checking.selected);
+      this.builderAccesses(dialog.componentInstance.checkeds.selected);
       this.service.setAccesses(this.accesses);
       this.table.renderRows();
     });
@@ -61,7 +61,9 @@ export class AplicationComponent implements OnInit {
   public addItem(access: Access) { 
     const dialog = this.dialog.open(AddItemComponent, {data: access});
     dialog.afterClosed().subscribe(result => {
-      this.builderItens(dialog.componentInstance.checked.selected);
+      let itens = dialog.componentInstance.checked;
+      this.service.update(itens);
+      this.pushItens(itens);
     });
   }
 
@@ -80,8 +82,8 @@ export class AplicationComponent implements OnInit {
   }
 
 
-  private builderItens(itens: Item[]){
-
+  private pushItens(itens: Item[]){
+    itens.forEach(item => this.access.itens.push(item));
   }
 
   private builderAccesses(access: Access[]){
@@ -97,7 +99,7 @@ export class AplicationComponent implements OnInit {
 
   private access: Access ={
     id: 0,
-    applicationId:0,
+    code:0,
     name:'',
     itens:[],
     status:0,

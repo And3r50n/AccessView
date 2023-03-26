@@ -18,7 +18,7 @@ export class AddItemComponent implements OnInit {
   public dataSource = new MatTableDataSource(this.itens);
   public displayedColumns: string[] = ['select','name','environment'];
   private checking = new SelectionModel<any>(true,[]);
-  public checked = new SelectionModel<any>(true,[]);
+  public checked: Item[] = [];
 
   constructor(@Inject(MAT_DIALOG_DATA) private data: Access, private service: AddSubApplicationService) {
     
@@ -32,16 +32,17 @@ export class AddItemComponent implements OnInit {
 
 
   putToggled(item: Item){
+    item.status = 0;
     this.checking.toggle(item);
   }
 
   done(){
-    this.checked = this.checking;
+    this.checked = this.checking.selected;
   }
 
   cancel(){
     this.checking.clear();
-    this.checked.clear();
+    this.checked = [];
   }
 
   applyFilter(event: Event) {

@@ -36,7 +36,7 @@ export class ItemComponent implements OnInit {
   showAddRole(item: ItemProperties):void{
     const dialog = this.dialog.open(RoleAddComponent, {data: item});
     dialog.afterClosed().subscribe(result => {
-      this.setNewRoles(dialog.componentInstance.checking.selected);
+      this.pushRoles(dialog.componentInstance.checkeds.selected);
       this.table.renderRows();
     });
   }
@@ -53,7 +53,7 @@ export class ItemComponent implements OnInit {
   };
 
 
-  private setNewRoles(roles: Role[]){
+  private pushRoles(roles: Role[]){
     roles.forEach(role => this.item.roles.push(role));
   }
 

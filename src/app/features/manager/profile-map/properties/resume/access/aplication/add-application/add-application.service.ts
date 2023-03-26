@@ -17,12 +17,12 @@ export class AddApplicationService {
 
   public getApplications(accesses: Access[]): any{
     let params = new HttpParams();
-    params = params.append('excepts', this.getAccessID(accesses));
+    params = params.append('excepts', this.getExceptId(accesses));
     return this.http.get<Observable<Access[]>>(this.API,{params});
   }
 
-  private getAccessID(accesses: Access[]): string {
-    let args = accesses.map(access => access.applicationId);
+  private getExceptId(accesses: Access[]): string {
+    let args = accesses.map(access => access.code);
     return args.join(',');
   }
 

@@ -18,7 +18,7 @@ export class AddApplicationComponent  {
   public accesses: Access[] = [];
   public dataSource = new MatTableDataSource(this.accesses);
   public displayedColumns: string[] = ['select','name', 'platform'];
-  public checking = new SelectionModel<any>(true,[]);
+  public checkeds = new SelectionModel<any>(true,[]);
 
 
   constructor(@Inject(MAT_DIALOG_DATA) private data: Access[], private service: AddApplicationService) {
@@ -28,14 +28,14 @@ export class AddApplicationComponent  {
   }
 
   putToggled(access: Access){
-    this.checking.toggle(access);
+    this.checkeds.toggle(access);
   }
 
   done(){
   }
 
   cancel(){
-    this.checking.clear();
+    this.checkeds.clear();
   }
 
   applyFilter(event: Event) {

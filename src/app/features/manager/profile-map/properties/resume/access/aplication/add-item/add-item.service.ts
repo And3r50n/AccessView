@@ -19,12 +19,12 @@ export class AddSubApplicationService {
 
   public getItens(access: Access): any{
     let params = new HttpParams();
-    params = params.append('id', access.applicationId);
-    params = params.append('excepts', this.getSubIdExcepts(access));
+    params = params.append('id', access.code);
+    params = params.append('excepts', this.getExceptId(access));
     return this.http.get<Observable<Item[]>>(this.API,{params});
   }
 
-  private getSubIdExcepts(access: Access): string  {
+  private getExceptId(access: Access): string  {
     return access.itens.map(item => item.id).join(',');
   }
 }
