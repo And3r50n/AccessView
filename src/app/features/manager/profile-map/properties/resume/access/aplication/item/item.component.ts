@@ -4,17 +4,17 @@ import { MatDialog, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { MatTable } from '@angular/material/table';
 import { ItemProperties } from 'src/app/core/entities/access/Item';
 import { Role } from 'src/app/core/entities/access/Role';
-import { PropertiesItemService } from './properties-item.service';
+import { PropertiesItemService } from './item.service';
 import { RoleAddComponent } from './role-add/role-add.component';
 import { RoleDetailsComponent } from './role-details/role-details.component';
 
 @Component({
-  selector: 'app-properties-item',
-  templateUrl: './properties-item.component.html',
-  styleUrls: ['./properties-item.component.scss']
+  selector: 'app-item',
+  templateUrl: './item.component.html',
+  styleUrls: ['./item.component.scss']
 })
 
-export class PropertiesItemComponent implements OnInit {
+export class ItemComponent implements OnInit {
 
   displayedColumns: string[] = ['id', 'name', 'status'];
   @ViewChild(MatTable) table!: MatTable<Role>;

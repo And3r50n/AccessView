@@ -40,10 +40,10 @@ import { AddItemComponent } from './properties/resume/access/aplication/add-item
 import { RolesComponent } from './properties/resume/access/actions/itens/roles/roles.component';
 import { DepartmentComponent } from './properties/resume/department/department.component';
 import { MatChipsModule } from '@angular/material/chips';
-import { PropertiesItemComponent } from './properties/resume/access/aplication/properties-item/properties-item.component';
-import { RoleDetailsComponent } from './properties/resume/access/aplication/properties-item/role-details/role-details.component';
+import { ItemComponent } from './properties/resume/access/aplication/item/item.component';
+import { RoleDetailsComponent } from './properties/resume/access/aplication/item/role-details/role-details.component';
 import { MatExpansionModule } from '@angular/material/expansion';
-import { RoleAddComponent } from './properties/resume/access/aplication/properties-item/role-add/role-add.component';
+import { RoleAddComponent } from './properties/resume/access/aplication/item/role-add/role-add.component';
 
 @NgModule({
   declarations: [
@@ -62,7 +62,7 @@ import { RoleAddComponent } from './properties/resume/access/aplication/properti
     AddItemComponent,
     RolesComponent,
     DepartmentComponent,
-    PropertiesItemComponent,
+    ItemComponent,
     RoleDetailsComponent,
     RoleAddComponent
   ],

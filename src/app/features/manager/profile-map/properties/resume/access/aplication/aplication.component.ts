@@ -8,7 +8,7 @@ import { AplicationService } from './aplication.service';
 import { animate, state, style, transition, trigger } from '@angular/animations';
 import { AddItemComponent } from './add-item/add-item.component';
 import { Item } from 'src/app/core/entities/access/Item';
-import { PropertiesItemComponent } from './properties-item/properties-item.component';
+import { ItemComponent } from './item/item.component';
 
 
 
@@ -67,7 +67,7 @@ export class AplicationComponent implements OnInit {
 
 
   public viewThisItem(item: Item){
-    const dialog = this.dialog.open(PropertiesItemComponent, {data: item.id});
+    const dialog = this.dialog.open(ItemComponent, {data: item.id});
   }
 
   public showAllActions() {
