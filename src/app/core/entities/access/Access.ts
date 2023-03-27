@@ -9,3 +9,8 @@ export interface Access {
     itens: Item[];
     status: number;    
 }
+
+export interface AccessItemRequest {
+    id: number;
+    itens: Item[];
+}

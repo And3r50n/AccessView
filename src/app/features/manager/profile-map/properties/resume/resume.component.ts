@@ -18,14 +18,14 @@ export class ResumeComponent{
 
   addOnBlur = true;
   readonly separatorKeysCodes = [ENTER, COMMA] as const;
-  fruits = [{name: 'Maria do Amaral'}, {name: 'Selma Felix'}, {name: 'Emerson da Silva'}];
+  owners = [{name: 'Maria do Amaral'}, {name: 'Selma Felix'}, {name: 'Emerson da Silva'}];
 
 
   add(event: MatChipInputEvent): void {
     const value = (event.value || '').trim();
     // Add our fruit
     if (value) {
-      this.fruits.push({name: value});
+      this.owners.push({name: value});
     }
     // Clear the input value
     event.chipInput!.clear();

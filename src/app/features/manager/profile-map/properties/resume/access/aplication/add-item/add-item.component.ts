@@ -25,8 +25,8 @@ export class AddItemComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.service.getItens(this.data).subscribe((application: Item[]) => {
-      this.dataSource = new MatTableDataSource(application);
+    this.service.getItens(this.data).subscribe((item: Item[]) => {
+      this.dataSource = new MatTableDataSource(item);
     }); 
   }
 

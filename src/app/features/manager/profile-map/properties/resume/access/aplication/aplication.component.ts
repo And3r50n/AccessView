@@ -62,7 +62,6 @@ export class AplicationComponent implements OnInit {
     const dialog = this.dialog.open(AddItemComponent, {data: access});
     dialog.afterClosed().subscribe(result => {
       let itens = dialog.componentInstance.checked;
-      this.service.update(itens);
       this.pushItens(itens);
     });
   }
@@ -83,7 +82,9 @@ export class AplicationComponent implements OnInit {
 
 
   private pushItens(itens: Item[]){
-    itens.forEach(item => this.access.itens.push(item));
+    this.service.update(this.access.id, itens).subscribe((result: Item[]) => {
+      result.forEach(item => this.access.itens.push(item));
+    });
   }
 
   private builderAccesses(access: Access[]){
@@ -92,8 +93,10 @@ export class AplicationComponent implements OnInit {
 
 
   public item: Item = {
-    id: 0,
+    id:0,
+    code:0,
     name:'',
+    environment:'',
     status: 0,
   };
 
@@ -104,7 +107,6 @@ export class AplicationComponent implements OnInit {
     itens:[],
     status:0,
   };
-
 
 
 }

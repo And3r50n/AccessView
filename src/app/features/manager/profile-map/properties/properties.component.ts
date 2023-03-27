@@ -11,7 +11,7 @@ import { PropertiesService } from './properties.service';
 
 export class PropertiesComponent implements OnInit {
 
-  public code: string = 'PF0000';
+  public descript: string = 'PF0000';
 
   constructor(private route: ActivatedRoute, private service: PropertiesService) {
   }
@@ -19,7 +19,7 @@ export class PropertiesComponent implements OnInit {
   ngOnInit() {
     this.route.queryParams.subscribe(params => {
       this.service.findProfileById(params['id']);
-      this.service.getProfileMap().subscribe(profile => this.code = profile.code+" - "+profile.description);
+      this.service.getProfileMap().subscribe(profile => this.descript = profile.code+" | "+profile.description);
     });
   }
 

@@ -1,5 +1,6 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Access } from 'src/app/core/entities/access/Access';
+import { Access, AccessItemRequest } from 'src/app/core/entities/access/Access';
 import { Item } from 'src/app/core/entities/access/Item';
 import { AccessService } from '../access.service';
 
@@ -8,7 +9,9 @@ import { AccessService } from '../access.service';
 })
 export class AplicationService {
 
-  constructor(private service: AccessService) {
+  private readonly API = 'api/manager/profile/application/'
+
+  constructor(private service: AccessService, private http: HttpClient) {
   }
 
   public setAccess(access: Access){
@@ -27,13 +30,16 @@ export class AplicationService {
     this.service.setItem(item);
   }
 
-  public update(itens: Item[]): Item[]{
+  public update(id: number, itens: Item[]):any{
+    let record: AccessItemRequest ={id: id,itens: itens}
+    if(record.itens.length > 0){
+      return this.http.put<Item[]>(this.API, record);
+    }
     return itens;
   }
 
-  public builderApplicationRequest(){
 
-  }
+
 
 
 

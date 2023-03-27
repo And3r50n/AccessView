@@ -43,6 +43,7 @@ export class ItemComponent implements OnInit {
 
   public item: ItemProperties = {
     id: 0,
+    code: 0,
     name: '',
     environment: '',
     application: '',

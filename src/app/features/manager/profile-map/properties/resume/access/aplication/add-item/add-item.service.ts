@@ -25,6 +25,6 @@ export class AddSubApplicationService {
   }
 
   private getExceptId(access: Access): string  {
-    return access.itens.map(item => item.id).join(',');
+    return access.itens.map(item => item.code).join(',');
   }
 }
