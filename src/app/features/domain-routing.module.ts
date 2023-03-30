@@ -13,13 +13,17 @@ const routes: Routes = [
         loadChildren: () => import('./manager/manager.module').then(m => m.ManagerModule) 
       },
       {
+        path: 'manager',
+        loadChildren: () => import('./manager/manager.module').then(m => m.ManagerModule) 
+      },
+      {
         path: 'admin',
         loadChildren: () => import('./admin/admin.module').then(m => m.AdminModule) 
       },
       {
-        path: 'manager',
-        loadChildren: () => import('./manager/manager.module').then(m => m.ManagerModule) 
-      }
+        path: 'account',
+        loadChildren: () => import('./my-account/my-account.module').then(m => m.MyAccountModule) 
+      },
     ]
   }
 ];

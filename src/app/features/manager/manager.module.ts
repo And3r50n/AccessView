@@ -1,14 +1,18 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ProfileMapModule } from './profile-map/profile-map.module';
+import { ApprovalsComponent } from './approvals/approvals.component';
+import { TeamManagementComponent } from './team-management/team-management.component';
+import { OverviewRoutingModule } from './overview/overview-routing.module';
+
 
 @NgModule({
   declarations: [
-
+    ApprovalsComponent,
+    TeamManagementComponent
   ],
   imports: [
     CommonModule,
-    ProfileMapModule
+    OverviewRoutingModule,
   ]
 })
 export class ManagerModule { }
