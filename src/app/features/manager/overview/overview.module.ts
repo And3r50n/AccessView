@@ -1,19 +1,20 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { CommonProfilesComponent } from './common-profiles/common-profiles.component';
+import { ProfilesComponent } from './profiles/profiles.component';
 import { RequiredApprovalsComponent } from './required-approvals/required-approvals.component';
 import { OverviewComponent } from './overview.component';
-
+import { OverviewRoutingModule } from './overview-routing.module';
 
 
 @NgModule({
   declarations: [
     OverviewComponent,
-    CommonProfilesComponent,
-    RequiredApprovalsComponent
+    ProfilesComponent,
+    RequiredApprovalsComponent,
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    OverviewRoutingModule
   ]
 })
 export class OverviewModule { }

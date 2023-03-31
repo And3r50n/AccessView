@@ -33,7 +33,7 @@ export class AuthenticationComponent implements OnInit {
 
   authenticate(){
     if(this.service.signIn(this.user)){
-      this.router.navigate(['/home']);
+      this.router.navigate(['/app']);
     }
   }
 }

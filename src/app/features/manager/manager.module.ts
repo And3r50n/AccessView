@@ -2,7 +2,8 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ApprovalsComponent } from './approvals/approvals.component';
 import { TeamManagementComponent } from './team-management/team-management.component';
-import { OverviewRoutingModule } from './overview/overview-routing.module';
+import { ManagerRoutingModule } from './manager-routing.module';
+
 
 
 @NgModule({
@@ -12,7 +13,7 @@ import { OverviewRoutingModule } from './overview/overview-routing.module';
   ],
   imports: [
     CommonModule,
-    OverviewRoutingModule,
+    ManagerRoutingModule
   ]
 })
 export class ManagerModule { }
