@@ -64,19 +64,19 @@ label:before {
 }
 
 label[for*='1']:before {
-  content: '\f1cb';
+  content: '\f0ac';
 }
 
 label[for*='2']:before {
-  content: '\f17d';
+  content: '\f00b';
 }
 
 label[for*='3']:before {
-  content: '\f16b';
+  content: '\f0e3';
 }
 
 label[for*='4']:before {
-  content: '\f1a9';
+  content: '\f0c0';
 }
 
 label:hover {
@@ -91,10 +91,10 @@ input:checked + label {
   border-bottom: 1px solid #fff;
 }
 
-#tab1:checked ~ #content1,
-#tab2:checked ~ #content2,
-#tab3:checked ~ #content3,
-#tab4:checked ~ #content4 {
+#tab1:checked ~ #content,
+#tab2:checked ~ #content,
+#tab3:checked ~ #content,
+#tab4:checked ~ #content {
   display: block;
 }
 

@@ -1,31 +1,23 @@
+
 <main>
   
-    <input id="tab1" type="radio" name="tabs" checked>
-    <label for="tab1">Overview</label>
+  <input id="tab1" type="radio" name="tabs" checked>
+  <label for="tab1" routerLink="overview">Overview</label>
+    
+  <input id="tab2" type="radio" name="tabs">
+  <label for="tab2" routerLink="profiles">Profiles</label>
+    
+  <input id="tab3" type="radio" name="tabs">
+  <label for="tab3" routerLink="approvals">Approvals</label>
+    
+  <input id="tab4" type="radio" name="tabs">
+  <label for="tab4" routerLink="team">Team Management</label>
       
-    <input id="tab2" type="radio" name="tabs">
-    <label for="tab2" routerLink="profiles">Profiles</label>
+  <section id="content">
+    <router-outlet></router-outlet>
+  </section>
       
-    <input id="tab3" type="radio" name="tabs">
-    <label for="tab3" routerLink="approvals">Approvals</label>
-      
-    <input id="tab4" type="radio" name="tabs">
-    <label for="tab4" routerLink="team">Team Management</label>
-      
-    <section id="content1">
-        <p>content 1</p>
-    </section>
-      
-    <section id="content2">
-      <router-outlet></router-outlet>
-    </section>
-      
-    <section id="content3">
-      <p>content 3 </p>
-    </section>
-      
-    <section id="content4">
-        <p>content 4</p>
-    </section>
-      
-  </main>
+</main>
+  
+
+ 

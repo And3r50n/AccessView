@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 
 import { ProfileMapRoutingModule } from './profile-map-routing.module';
 import { ProfileMapComponent } from './profile-map.component';
+import { MatTableModule } from '@angular/material/table';
 
 
 @NgModule({
@@ -11,7 +12,8 @@ import { ProfileMapComponent } from './profile-map.component';
   ],
   imports: [
     CommonModule,
-    ProfileMapRoutingModule
+    ProfileMapRoutingModule,
+    MatTableModule
   ]
 })
 export class ProfileMapModule { }
