@@ -6,6 +6,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { AuthenticationService } from './core/authentication/authentication.service';
+import { CoreModule } from './core/core.module';
 
 
 
@@ -14,6 +15,7 @@ import { AuthenticationService } from './core/authentication/authentication.serv
     AppComponent,
   ],
   imports: [
+    CoreModule,
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,

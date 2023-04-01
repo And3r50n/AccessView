@@ -1,5 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+
+import { ProfileMapRoutingModule } from './profile-map-routing.module';
 import { ProfileMapComponent } from './profile-map.component';
 
 
@@ -8,7 +10,8 @@ import { ProfileMapComponent } from './profile-map.component';
     ProfileMapComponent
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    ProfileMapRoutingModule
   ]
 })
 export class ProfileMapModule { }
