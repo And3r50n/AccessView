@@ -1,19 +1,19 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { Profile } from 'src/app/core/entities/Profile';
-import { ProfilesService } from './profiles.service';
+import { ProfileMapService } from './profile-map.service';
 
 @Component({
-  selector: 'app-profiles',
-  templateUrl: './profiles.component.html',
-  styleUrls: ['./profiles.component.scss']
+  selector: 'app-profile-map',
+  templateUrl: './profile-map.component.html',
+  styleUrls: ['./profile-map.component.scss']
 })
-export class ProfilesComponent {
+export class ProfileMapComponent {
 
   public profiles: Profile[] = [];
   public columns: string[] = ['code', 'descript'];
 
-  constructor(private service: ProfilesService, private router: Router){
+  constructor(private service: ProfileMapService, private router: Router){
   }
 
   ngOnInit(): void {
@@ -21,7 +21,5 @@ export class ProfilesComponent {
       this.profiles = data;
     });   
   }
-
-
 
 }
